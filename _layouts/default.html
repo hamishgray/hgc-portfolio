@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  {% include page/head.html %}
+
+  <body class="page--{{page.id}} {% if page.theme %}theme--{{page.theme}}{% else %}theme--light{% endif %} layout--{{page.layout}}">
+
+    <div
+      class="page-bg{% if page.id == 'home' %} page-bg--home is-ready{% endif %}"
+      style="background-color: #{% if page.background.colour %}{{page.background.colour}}{% else %}{{site.colour}}{% endif %};">
+      {% if page.layout == 'project' or page.background.image %}
+      <div
+        class="page-bg__image{% if page.layout == 'project' %} js-bg-fade{% endif %}"
+        style="background-image: url('{{site.img}}{% if page.background.image %}/{{page.background.image}}{% else %}/projects/{{page.id}}/banner.jpg{% endif %}')"></div>
+      {% endif %}
+    </div>
+
+    {% include components/tracking.html %}
+
+    {% include page/header.html %}
+
+    {{ content }}
+
+    {% include modal/modal.html %}
+
+    {% include page/footer.html %}
+
+  </body>
+
+</html>

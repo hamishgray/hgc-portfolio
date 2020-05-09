@@ -1,0 +1,11 @@
+<div class="post-tile">
+  <a class="img img--21-9" href="{{site.baseurl}}{{post.url}}" style="background-image:url({{site.img}}/posts/img.jpg);"></a>
+  <div class="boxpad--lg">
+    <a href="{{site.url}}{{post.url}}"><h2 class="t t4 t--600">{{post.title}}</h2></a>
+    {% if post.date %}
+      <span class="t-subtitle">{{post.date | date: "%B %d, %Y"}}</span>
+    {% endif %}
+    <div class="space--sm"></div>
+    <p>{{post.excerpt | strip_html | truncate: 160}}</p>
+  </div>
+</div>

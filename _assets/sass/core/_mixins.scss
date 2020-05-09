@@ -1,0 +1,46 @@
+
+/*========================================
+ *  Mixins
+ *========================================*/
+
+@mixin transition($time: null) {
+  @if($time){
+    transition: all $time ease;
+  }@else{
+    transition: all $transition-time ease;
+  }
+}
+
+@mixin page-padding {
+  padding-left: $s2;
+  padding-right: $s2;
+  @include bp($md){
+    padding-left: $s4;
+    padding-right: $s4;
+  }
+}
+
+@mixin shadow() { box-shadow: 0px 8px 44px 0px rgba($black, .2); }
+
+@mixin background-attributes {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+@mixin font-smoothing {
+  -webkit-font-smoothing: antialiased;
+  -moz-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+@mixin bp($width){
+  @media (min-width: $width){ @content; }
+}
+
+// vertical breakpoint
+@mixin vbp($width){
+  @media (min-height: $width){ @content; }
+}

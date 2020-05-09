@@ -1,0 +1,31 @@
+
+/*========================================
+ *  Helpers
+ *========================================*/
+
+// accessible hide element
+.hidden { display: none; visibility: hidden; height: 0 !important; overflow: hidden; }
+
+
+/*========================================
+ *  Shadows
+ *========================================*/
+
+.shadow {
+  box-shadow: 0 1px 3px 1px rgba($grey-darkest,0.1);
+}
+
+
+/*========================================
+ *  Rounded
+ *========================================*/
+
+.rounded {
+  border-radius: 3px;
+  &--xs { border-radius: 1px;  }
+  &--sm { border-radius: 2px;  }
+  &--md { border-radius: 3px;  }
+  &--lg { border-radius: 4px;  }
+  &--xl { border-radius: 5px;  }
+}
+

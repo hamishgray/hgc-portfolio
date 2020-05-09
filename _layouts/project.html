@@ -1,0 +1,67 @@
+---
+layout: default
+---
+
+
+
+<div class="project__banner">
+  <div class="project__banner-wrap">
+    <div class="container vpad--xxxl">
+      <div class="width--md">
+
+        {% if page.banner.title-sup %}<div class="t t4 t-subtitle vpad--xs">{{page.banner.title-sup}}</div>{% endif %}
+        <h1 class="t t-banner">{% if page.banner.title %}{{page.banner.title}}{% else %}{{page.title}}{% endif %}</h1>
+        {% if page.banner.title-sub %}<div class="t t4 t-subtitle vpad--xs">{{page.banner.title-sub}}</div>{% endif %}
+
+        {% if page.banner.content %}
+          <div class="space--lg"></div>
+          <p class="p p--xl">{{page.banner.content}}</p>
+        {% endif %}
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="project">
+
+
+
+  <div class="container container--xxl">
+    <div class="row row--gutters-sm">
+      {% assign details = page.details %}
+      {% for detail in details %}
+        {% assign cols = details.size | plus:1 %}
+        <div class="col-{{ 12 | divided_by:cols }}">
+          <span class="t t--600 t--upper">{{detail.title}}</span><br />
+          <span class="p">{{detail.content}}</span>
+          <hr>
+        </div>
+        {% if forloop.last %}
+        <div class="col-{{ 12 | divided_by:cols }}">
+          <span class="t t--600 t--upper">Date</span><br />
+          <span class="p">{{page.date | date: '%B %d, %Y'}}</span>
+          <hr>
+        </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+
+
+
+  {% for section in page.sections %}
+    {% if section.layout == 'image' %}
+      {% include project/image.html %}
+    {% elsif section.layout == 'banner' %}
+      {% include project/banner.html %}
+    {% elsif section.layout == 'content' %}
+      {% include project/content.html %}
+    {% endif %}
+  {% endfor %}
+
+
+
+</div>

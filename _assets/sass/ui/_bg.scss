@@ -1,0 +1,26 @@
+
+/*========================================
+ *  Background image/colour classes
+ *========================================*/
+
+.bg {
+  &--white         { background-color: $white; }
+  &--grey-lightest { background-color: $grey-lightest; }
+  &--grey-lighter  { background-color: $grey-lighter; }
+  &--grey-light    { background-color: $grey-light; }
+  &--grey          { background-color: $grey; }
+  &--grey-dark     { background-color: $grey-dark; }
+  &--grey-darker   { background-color: $grey-darker; }
+  &--grey-darkest  { background-color: $grey-darkest; }
+  &--img           { @include background-attributes; }
+  &--img-fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: $z-background;
+    @include background-attributes;
+    background-color: $grey-darker;
+  }
+}

@@ -1,0 +1,17 @@
+
+{% assign nav-pages = site.html_pages | where: 'nav', 'true' | sort: 'nav-order' %}
+
+<div class="nav">
+
+    {% for nav-page in nav-pages %}<div class="nav__item">
+
+      <a class="nav__link{% if nav-page.id == page.id or nav-page.id == page.group-parent %} is-current{% endif %}" href="{{site.baseurl}}{{nav-page.url}}">
+        {% if nav-page.nav-title %}
+          {{nav-page.nav-title}}
+        {% else %}
+          {{nav-page.title}}
+        {% endif %}
+      </a>
+
+    </div>{% endfor %}
+</div>

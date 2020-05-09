@@ -1,0 +1,8 @@
+
+{% assign imgs = section.img %}
+
+<div class="vpad--xl">
+  {% for img in imgs %}
+    <div class="img img--4-3 img--xxl-16-9" style="background-image: url({{site.img}}/projects/{{page.id}}/{{img.src}})"></div>
+  {% endfor %}
+</div>

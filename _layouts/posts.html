@@ -1,0 +1,27 @@
+---
+layout: default
+theme: light
+---
+
+<div class="container">
+    <h1 class="t t2">Posts</h1>
+    {%- if strapi.collections.posts.size > 0 -%}
+    <div class="row posts">
+        {%- for post in strapi.collections.posts -%}
+        <div class='col col-6'>
+          <div class="post-tile boxpad--lg">
+            <h2 class='t t4'>
+              <a class="post-link" href="{{ post.url | relative_url }}">
+                {{ post.title }}
+              </a>
+            </h2>
+            <p class="post-meta">{{ post.created_at | date_to_string }} by {{ post.author.username }}</p>
+            <!-- Display an excerpt of the article -->
+            <p>{{ post.content | markdownify | strip_html | truncate: 100 }}</p>
+            <a href="{{ post.url | relative_url }}">Read more</a>
+          </div>
+        </div>
+        {%- endfor -%}
+    </div>
+    {%- endif -%}
+</div>

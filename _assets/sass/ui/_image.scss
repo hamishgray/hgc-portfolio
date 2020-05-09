@@ -1,0 +1,80 @@
+
+/*========================================
+ *  Background image elements for easy image cropping
+ *========================================*/
+
+@mixin ratios() {
+  &2-3:before    { padding-top: 150%; }
+  &3-4:before    { padding-top: 133.33333333333%; }
+  &1-1:before    { padding-top: 100%; }
+  &4-3:before    { padding-top: 75%; }
+  &3-2:before    { padding-top: 66.666666666667%; }
+  &16-9:before   { padding-top: 56.25%; }
+  &21-9:before   { padding-top: 42.8571429%; }
+  &circle        { padding-top: 100%; border-radius: 9999999em; }
+}
+
+.img {
+  display: block;
+  position: relative;
+  @include background-attributes();
+  &:before {
+    content: '';
+    display: block;
+    width: 100%;
+  }
+  &-- { @include ratios; }
+  // breakpoints
+  @include bp($sm) { &--sm- { @include ratios; } }
+  @include bp($md) { &--md- { @include ratios; } }
+  @include bp($lg) { &--lg- { @include ratios; } }
+  @include bp($xl) { &--xl- { @include ratios; } }
+  @include bp($xxl) { &--xxl- { @include ratios; } }
+  @include bp($xxxl) { &--xxxl- { @include ratios; } }
+}
+
+
+
+/*========================================
+ *  Styles for content overlayed on images
+ *========================================*/
+
+.img {
+  // Vertically centered content in bg-image
+  background-color: $grey-dark;
+  @include transition;
+  &__link {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: $z-content-overlay;
+    cursor: pointer;
+  }
+  &__content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: $z-content-upper;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $white;
+    text-align: center;
+    @include page-padding;
+  }
+  &__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: $z-content;
+    background-color: rgba($black,.4);
+    @include transition;
+  }
+  &:hover &__overlay { background-color: rgba($black,.6); }
+}

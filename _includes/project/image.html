@@ -1,0 +1,33 @@
+
+{% assign imgs = section.img %}
+
+<div class="container vpad--xl">
+
+  {% if imgs.size > 1 %}
+
+    <div class="row">
+      {% assign cols = imgs.size %}
+      {% for img in imgs %}
+      <div class="project__image col-{{ 12 | divided_by:cols }}">
+        <img src="{{site.img}}/projects/{{page.id}}/{{img.src}}">
+        {% if img.caption %}
+          <div class="project__caption">{{img.caption}}</div>
+        {% endif %}
+      </div>
+      {% endfor %}
+    </div>
+
+  {% else %}
+
+    {% for img in imgs %}
+    <div class="project__image">
+      <img src="{{site.img}}/projects/{{page.id}}/{{img.src}}">
+      {% if img.caption %}
+        <div class="project__caption">{{img.caption}}</div>
+      {% endif %}
+    </div>
+    {% endfor %}
+
+  {% endif %}
+
+</div>

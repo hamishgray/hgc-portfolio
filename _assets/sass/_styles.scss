@@ -1,0 +1,150 @@
+
+/*========================================
+ *  Unique element based styles
+ *========================================*/
+
+.theme {
+  &--dark {
+    color: $white;
+    & .t { color: $white; }
+    & hr { background-color: rgba($white,0.2); }
+  }
+  &--light {
+    color: $grey-dark;
+    & .t { color: $grey-darkest; }
+    & hr { background-color: rgba($grey-darkest,0.2); }
+    & .nav__link { color: $grey-darkest; }
+  }
+}
+
+.page-break {
+  position: relative;
+  display: block;
+  margin: $s2 0;
+  width: 100%;
+  height: 1px;
+  &:before, &:after {
+    content: "";
+    height: 1px;
+    width: 80px;
+    display: block;
+    position: absolute;
+    background-color: rgba($grey-darkest, 0.4);
+    .theme--dark & { background-color: rgba($white, 0.4); }
+  }
+  &:before { left: 0; }
+  &:after { right: 0; }
+}
+
+
+.page-bg {
+  position: fixed;
+  top: 0; left: 0;
+  right: 0; bottom: 0;
+  z-index: $z-background;
+  background-color: $brand-darker;
+  &__image {
+    position: absolute;
+    top: 0; left: 0;
+    right: 0; bottom: 0;
+    @include background-attributes;
+  }
+  &--home &__image {
+    opacity: 0.2;
+  }
+}
+
+
+.post-tile {
+  @include transition;
+  background-color: rgba($white,0.1);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 0 15px rgba($grey-darkest,0.05);
+  &:hover { box-shadow: 0 0 45px rgba($grey-darkest,0.1); }
+}
+
+
+.project-tile {
+  @include transition();
+  background-size: 100% auto;
+  &:hover { background-size: 105% auto; }
+  &__content {
+    @include transition();
+    position: absolute;
+    z-index: 1;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 0 15px;
+    height: 0;
+    overflow: hidden;
+    background-color: $white;
+    color: $brand-darker;
+  }
+  &:hover &__content {
+    padding: 10px 15px;
+    height: 80px;
+    bottom: -40px;
+  }
+}
+
+
+.project {
+  position: relative;
+  z-index: 1;
+  &__bg {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    @include background-attributes();
+  }
+  &__banner {
+    height: 100%;
+    position: relative;
+    &-wrap {
+      position: relative;
+      z-index: 5;
+      display: flex;
+      width: 100%;
+      height: 100%;
+      flex-grow: 1;
+      flex-direction: column;
+      justify-content: flex-end;
+      overflow: hidden;
+    }
+  }
+  &__image {
+    max-width: 1140px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+  &__caption {
+    color: $white;
+    margin-top: $s2;
+    padding: $s-2 $s2;
+    border-bottom: 1px solid rgba($white,0.2);
+    text-align: center;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    font-size: $s-1;
+    max-width: $xxl;
+    margin-left: auto;
+    margin-right: auto;
+    display: inline-block;
+  }
+}
+
+
+// ===========================
+// PAGE STYLES
+
+.page--home {
+  // height: 100%; overflow: hidden; position: relative;
+}
+

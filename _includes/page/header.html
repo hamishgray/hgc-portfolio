@@ -1,0 +1,15 @@
+<header class="header">
+  <div class="container container--100">
+    <div class="row row--valign-center">
+      <div class="col-6">
+        {% include components/logo.html %}
+      </div>
+      <div class="col-6">
+        <!-- {% include nav/site.html %} -->
+      </div>
+    </div>
+  </div>
+</header>
+{% unless page.layout == "project" %}
+<div class="header__offset"></div>
+{% endunless %}

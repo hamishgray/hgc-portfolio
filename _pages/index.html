@@ -1,0 +1,58 @@
+---
+layout: default
+id: home
+nav: true
+nav-order: 1
+title: Home
+theme: dark
+
+background:
+  colour: 7a00ff
+  image: "banner/home.jpg"
+
+banner:
+  content: >
+    <p class="t t5 t-subtitle">Hamish Gray</p>
+    <p class="p--sm text--mono">
+      Digital Designer, Frontend Developer<br />
+      hamishjgray@gmail.com<br />
+      07449 736830<br />
+      London, United Kingdom
+    </p>
+    <div class="space--xl"></div>
+    <p class="p--xl">Hi, I'm Hamish!</p>
+    <p class="p--xl">I've learnt that great design is about creating logical systems to solve problems with elegant, timeless solutions. What drives me is being able to collaborate with interesting people to create solutions that satisfy their business and users goals, and make their dreams reality.</p>
+
+---
+{% assign projects = site.html_pages | where:"group-parent","portfolio" | sort:"date" | reverse %}
+
+<div class="container vpad--lg">
+  <div class="space--xxl"></div>
+  <div class="row">
+    <div class="col">
+      <div class="width--xl">
+      {% if page.banner.content %}
+        {{page.banner.content | liquify}}
+      {% else %}
+        {% if page.banner.title-sup %}<h2 class="sub-title">{{page.banner.title-sup}}</h2>{% endif %}
+        <h1 class="banner-title">{% if page.banner.title %}{{page.banner.title}}{% else %}{{page.title}}{% endif %}</h1>
+        {% if page.banner.title-sub %}<h2 class="sub-title">{{page.banner.title-sub}}</h2>{% endif %}
+      {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="page-break"></div>
+
+<div class="container vpad--lg">
+  <h2 class="t t5 t-subtitle">The Work</h2>
+  <div class="row row--left">
+    {% for project in projects %}
+    <div class="col-12 vpad--xs">
+      <a href="{{project.url}}" class="js-project-link t t1 t--600" data-bg-colour="{{project.colour}}" data-bg-image="{{site.img}}/projects/{{project.id}}/banner.jpg" style="--colour: #{{project.colour}};">{{project.title}}</a>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+

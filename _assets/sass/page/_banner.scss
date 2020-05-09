@@ -1,0 +1,30 @@
+
+/*========================================
+ *  Title banner
+ *========================================*/
+
+.banner {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: 100%;
+  min-height: 525px;
+  color: $white;
+  @include bp($lg){
+    height: 80%;
+    min-height: 650px;
+  }
+  &__wrap {
+    position: relative;
+    z-index: $z-content-upper;
+    display: flex;
+    width: 100%;
+    flex-grow: 1;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
+    @include page-padding;
+  }
+}

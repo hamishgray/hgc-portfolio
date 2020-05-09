@@ -1,0 +1,148 @@
+
+/*========================================
+ *  Core grid styles with most of the config
+ *========================================*/
+
+ @mixin container() {
+   margin-left: auto;
+   margin-right: auto;
+   @include page-padding;
+ }
+
+.container {
+  width: 100%;
+  max-width: $xxxl;
+  @include container;
+  // widths
+  &--fluid { max-width: 100%; @include container; }
+  &--xxl   { max-width: $xxl; @include container; }
+  &--xl    { max-width: $xl; @include container; }
+  &--lg    { max-width: $lg; @include container; }
+  &--md    { max-width: $md; @include container; }
+  &--sm    { max-width: $sm; @include container; }
+  // alignment
+  &--left  { margin-left: 0; margin-right: auto; }
+  &--right { margin-left: auto; margin-right: 0; }
+}
+
+.width {
+  width: 100%;
+  max-width: $xxxl;
+  &--xxl   { max-width: $xxl; }
+  &--xl    { max-width: $xl; }
+  &--lg    { max-width: $lg; }
+  &--md    { max-width: $md; }
+  &--sm    { max-width: $sm; }
+}
+
+
+
+// gutters
+$gutter-size-xl: $s4;
+$gutter-size-lg: $s3;
+$gutter-size:    $s2;
+$gutter-size-sm: $s1;
+$gutter-size-xs: $s0;
+.row {
+  // default values
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: center;
+  // row modifiers
+  &--justify       { justify-content: space-between; }
+  &--center        { justify-content: center; }
+  &--left          { justify-content: flex-start; }
+  &--right         { justify-content: flex-end; }
+  &--valign-bottom { align-items: flex-end; }
+  &--valign-center { align-items: center; }
+  // default countering container padding
+  margin-left: -$gutter-size-sm;
+  margin-right: -$gutter-size-sm;
+  @include bp($md) {
+    margin-left: -$gutter-size;
+    margin-right: -$gutter-size;
+  }
+  & > div[class^="col"], & > div[class*=" col"] {
+    padding-left: $gutter-size-sm;
+    padding-right: $gutter-size-sm;
+    @include bp($md) {
+      padding-left: $gutter-size;
+      padding-right: $gutter-size;
+    }
+  }
+
+  // gutter spacing for columns
+  &--gutters {
+    // default settings
+    margin-left: -$gutter-size-sm; margin-right: -$gutter-size-sm;
+    & > div[class^="col"], & > div[class*=" col"] { padding-left: $gutter-size-sm; padding-right: $gutter-size-sm; }
+    @include bp($md){
+      margin-left: -$gutter-size; margin-right: -$gutter-size;
+      & > div[class^="col"], & > div[class*=" col"] { padding-left: $gutter-size; padding-right: $gutter-size; }
+    }
+    // modifiers all within a breakpoint
+    @include bp($md){
+      // .row--gutters-xs = extra small gutters
+      &-xs {
+        margin-left: -$gutter-size-xs; margin-right: -$gutter-size-xs;
+        & > div[class^="col"], & > div[class*=" col"] { padding-left: $gutter-size-xs; padding-right: $gutter-size-xs; }
+      }
+      // .row--gutters-sm = small gutters
+      &-sm {
+        margin-left: -$gutter-size-sm; margin-right: -$gutter-size-sm;
+        & > div[class^="col"], & > div[class*=" col"] { padding-left: $gutter-size-sm; padding-right: $gutter-size-sm; }
+      }
+      // .row--gutters-lg = large gutters
+      &-lg {
+        margin-left: -$gutter-size-lg; margin-right: -$gutter-size-lg;
+        & > div[class^="col"], & > div[class*=" col"] { padding-left: $gutter-size-lg; padding-right: $gutter-size-lg; }
+      }
+      // .row--gutters-xl = extra large gutters
+      &-xl {
+        margin-left: -$gutter-size-xl; margin-right: -$gutter-size-xl;
+        & > div[class^="col"], & > div[class*=" col"] { padding-left: $gutter-size-xl; padding-right: $gutter-size-xl; }
+      }
+      // .row--gutters-none = no gutters
+      &-none {
+        margin-left: 0; margin-right: 0;
+        & > div[class^="col"], & > div[class*=" col"] { padding-left: 0; padding-right: 0; }
+      }
+    }
+  }
+
+}
+
+.col {
+  flex: 1 1 100%;
+  // align single column
+  &--top    { align-self: flex-start; }
+  &--middle { align-self: center; }
+  &--bottom { align-self: flex-end; }
+  // auto size
+  &--auto { flex: 1 1 auto; }
+  // equal column sizes for all columns in row
+  @mixin column-widths() {
+    &1   { flex: 0 0 8.33%; max-width: 8.33%; }
+    &2   { flex: 0 0 16.667%; max-width: 16.667%; }
+    &3   { flex: 0 0 25%; max-width: 25%; }
+    &4   { flex: 0 0 33.33%; max-width: 33.33%; }
+    &5   { flex: 0 0 40%; max-width: 40%; }
+    &6   { flex: 0 0 50%; max-width: 50%; }
+    &7   { flex: 0 0 60%; max-width: 60%; }
+    &8   { flex: 0 0 66.66%; max-width: 66.66%; }
+    &9   { flex: 0 0 75%; max-width: 75%; }
+    &10  { flex: 0 0 83.33%; max-width: 83.33%; }
+    &11  { flex: 0 0 91.667%; max-width: 91.667%; }
+    &12  { flex: 0 0 100%; max-width: 100%; }
+  }
+  // default breakpoint for col widths
+  @include bp($lg) { &- { @include column-widths; } }
+  // columns with other breakpoints
+  @include bp($sm)   { &-sm- { @include column-widths; } }
+  @include bp($md)   { &-md- { @include column-widths; } }
+  @include bp($lg)   { &-lg- { @include column-widths; } }
+  @include bp($xl)   { &-xl- { @include column-widths; } }
+  @include bp($xxl)  { &-xxl- { @include column-widths; } }
+  @include bp($xxxl) { &-xxxl- { @include column-widths; } }
+}

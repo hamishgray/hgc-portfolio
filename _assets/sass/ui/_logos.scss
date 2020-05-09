@@ -1,0 +1,19 @@
+
+/*========================================
+ *  Logo styling
+ *========================================*/
+
+.logo {
+  display: inline-block;
+  width: 100%;
+  max-width: 60px;
+  padding-top: 3px;
+  @include bp($md){
+    max-width: 80px;
+    padding-top: 4px;
+  }
+  &--sm {
+    max-width: 40px;
+    @include bp($md){ max-width: 60px; }
+  }
+}

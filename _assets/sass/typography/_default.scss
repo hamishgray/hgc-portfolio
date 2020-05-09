@@ -1,0 +1,124 @@
+
+/*========================================
+ *  Default type settings
+ *========================================*/
+
+$font:       'Merriweather', 'Helvetica Neue', sans-serif;
+$font-title: 'Maisonneue', 'Helvetica Neue', sans-serif;
+$font-mono:  'Maisonneue Mono', 'Helvetica Neue', sans-serif;
+
+html { // This is the root size for REM
+  font-size: 81.25%; // = 13px
+  @include bp($md) { font-size: 87.5%; } // = 14px
+  @include bp($xl) { font-size: 92.5%; } // = 15px
+}
+
+body {
+  font-family: $font;
+  -webkit-text-size-adjust: 100%;
+  font-weight: 300;
+  line-height: 1.65;
+  letter-spacing: .015rem;
+  color: $grey;
+  background-color: $white;
+}
+
+
+/*========================================
+ *  Typography HTML elements and helpers
+ *========================================*/
+
+.text {
+ // colours
+ &--white {
+   color: $grey-lightest;
+   .t { color: $white; }
+ }
+ &--black,
+ &--default {
+   color: $grey-dark;
+   .t { color: $grey-darkest; }
+ }
+ // families
+ &--mono { font-family: $font-mono; }
+ // modifiers
+ &--kern     { letter-spacing: .15em; }
+ &--italic   { font-style: italic; }
+ &--upper    { text-transform: uppercase; }
+ // alignment
+ &--left   { text-align: left; }
+ &--right  { text-align: right; }
+ &--center { text-align: center; }
+ @include bp($lg) {
+   &--lg-left   { text-align: left; }
+   &--lg-right  { text-align: right; }
+   &--lg-center { text-align: center; }
+ }
+}
+
+em      { font-style: italic; }
+strong  { font-weight: 700; }
+sup {
+  font-size: $s-1;
+  line-height: 0;
+  vertical-align: super;
+}
+
+// standard inline link style
+a[href]:not([class]) {
+  color: $brand;
+  @include transition;
+  &:hover { color: $brand-darker; }
+}
+
+li {
+  list-style-position:
+  outside; margin-left: $s1;
+}
+ul li   { list-style-type: disc; }
+ol li   { list-style-type: decimal; }
+
+.list {
+  &--lined {
+    padding: $s0 0;
+    & li {
+      list-style: none;
+      margin-left: 0;
+      padding: $s0 0;
+      border-bottom: 1px solid rgba($white,0.2);
+      &:first-child { border-top: 1px solid rgba($white,0.2); }
+    }
+  }
+}
+
+hr {
+  border: 0;
+  height: 1px;
+  background-color: rgba($grey-lightest,0.2);
+  margin: $s2 0;
+  .text--white & { background-color: rgba($grey-darkest,0.2); }
+}
+.hr {
+  &--left { width: 80px; margin-left: 0; }
+  &--center { width: 80px; margin-left: auto; margin-right: auto; }
+  &--right { width: 80px; margin-right: 0; }
+}
+
+
+
+/*========================================
+ *  Typography spacing
+ *========================================*/
+
+* + ul,
+* + ol  { padding-top: $s-1; }
+li + li { padding-top: $s-3; }
+p + p { padding-top: $s-1; }
+
+ul,
+ol { padding-top: $s2; padding-bottom: $s-2; }
+
+// specific spacing for all titles, these should be adjusted once typefaces & content are added
+p + .title { padding-top: $s5; }
+.title + p { padding-top: $s-3; }
+.title + .title { padding-top: 0; padding-bottom: $s-3; }

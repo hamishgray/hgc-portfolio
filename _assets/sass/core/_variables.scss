@@ -1,0 +1,69 @@
+
+/*========================================
+ *  Site variables
+ *========================================*/
+
+$transition-time: 0.25s;
+
+// widths
+$xxxl: 1200px;
+$xxl:  970px;
+$xl:   800px;
+$lg:   650px;
+$md:   450px;
+$sm:   330px;
+
+// z-index
+$z-modal:           35;
+$z-overlay-upper:   30;
+$z-overlay:         25;
+$z-nav-upper:       20;
+$z-nav:             15;
+$z-content-overlay: 10;
+$z-content-upper:   5;
+$z-content:         0;
+$z-background:      -1;
+
+// exponential scale
+$s0:  1rem;
+$s1:  1.2rem;
+$s2:  1.44rem;
+$s3:  1.728rem;
+$s4:  2.0736rem;
+$s5:  2.48832rem;
+$s6:  2.98598rem;
+$s7:  3.58318rem;
+$s8:  4.29982rem;
+$s9:  5.15978rem;
+$s10: 6.19174rem;
+$s11: 7.43008rem;
+$s12: 8.9161rem;
+$s13: 10.69932rem;
+$s14: 12.83918rem;
+$s15: 15.40702rem;
+$s16: 18.48843rem;
+$s17: 22.18611rem;
+$s18: 26.62333rem;
+$s19: 31.948rem;
+$s20: 38.3376rem;
+
+$s-1:  0.8rem;
+$s-2:  0.64rem;
+$s-3:  0.512rem;
+$s-4:  0.4096rem;
+$s-5:  0.32768rem;
+$s-6:  0.26214rem;
+$s-7:  0.20972rem;
+$s-8:  0.16777rem;
+$s-9:  0.13422rem;
+$s-10: 0.10737rem;
+$s-11: 0.0859rem;
+$s-12: 0.06872rem;
+$s-13: 0.05498rem;
+$s-14: 0.04398rem;
+$s-15: 0.03518rem;
+$s-16: 0.02815rem;
+$s-17: 0.02252rem;
+$s-18: 0.01801rem;
+$s-19: 0.01441rem;
+$s-20: 0.01153rem;

@@ -1,0 +1,18 @@
+
+/*========================================
+ *  Site footer
+ *========================================*/
+
+.footer {
+
+  &__wrap {
+    @include page-padding;
+    padding-top: $s8;
+    padding-bottom: $s8;
+    text-align: center;
+  }
+
+  // spacing for multiple logos in site footer
+  .logo + .logo { margin-left: $s0; }
+
+}
