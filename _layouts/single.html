@@ -1,9 +1,0 @@
----
-layout: default
-theme: light
----
-
-<img src="{{page.document.cover[0].url}}" alt="">
-<h1>{{page.document.title}}</h1>
-<span class="post-meta">{{ page.document.created_at | date_to_string }} by <a href="/authors/{{ page.document.author.username }}">{{ page.document.author.username }}</a></span>
-{{ page.document.content | markdownify }}

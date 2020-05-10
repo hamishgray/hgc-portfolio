@@ -1,3 +1,10 @@
+
+{% if page.document.theme_dark or page.theme == 'dark' %}
+  {% assign logo = cms.logo_white.url %}
+{% else %}
+  {% assign logo = cms.logo.url %}
+{% endif %}
+
 <a href="/" id="track-logo" class="logo {{include.class}}" >
-  <img src="{{site.img}}/logo/logo{% unless page.theme == 'dark' %}-dark{% endunless %}.svg" alt="HGC logo">
+  <img src="{{logo}}" alt="HGC logo">
 </a>

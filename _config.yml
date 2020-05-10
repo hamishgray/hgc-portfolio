@@ -1,9 +1,3 @@
-# Site settings
-title: HGC
-description: >
-  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-colour: f6f1fb
-
 # File paths
 url:     "" # the base hostname & protocol for your site
 baseurl: "" # the subpath of your site, e.g. /blog/
@@ -20,22 +14,22 @@ sass:
     sass_dir: css
     style: compressed
 
+# Strapi settings
 plugins:
   - jekyll-strapi
 
 strapi:
-    # Your API endpoint (optional, default to http://localhost:1337)
     endpoint: http://localhost:1337
-    # Collections, key is used to access in the strapi.collections
-    # template variable
     collections:
-        # Example for a "posts" collection
+        sites:
+            type: sites
         posts:
-            # Collection name (optional). Used to construct the url requested. Example: type `foo` would generate the following url `http://localhost:1337/foo`.
             type: posts
-            # Permalink used to generate the output files (eg. /posts/:id).
-            permalink: /thoughts/:slug/
-            # Layout file for this collection
-            layout: single.html
-            # Generate output files or not (default: false)
+            permalink: /posts/:slug/
+            layout: post.html
+            output: true
+        projects:
+            type: projects
+            permalink: /projects/:slug/
+            layout: project.html
             output: true

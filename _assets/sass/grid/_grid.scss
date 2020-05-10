@@ -137,12 +137,12 @@ $gutter-size-xs: $s0;
     &12  { flex: 0 0 100%; max-width: 100%; }
   }
   // default breakpoint for col widths
-  @include bp($lg) { &- { @include column-widths; } }
+  @include bp($lg) { &-- { @include column-widths; } }
   // columns with other breakpoints
-  @include bp($sm)   { &-sm- { @include column-widths; } }
-  @include bp($md)   { &-md- { @include column-widths; } }
-  @include bp($lg)   { &-lg- { @include column-widths; } }
-  @include bp($xl)   { &-xl- { @include column-widths; } }
-  @include bp($xxl)  { &-xxl- { @include column-widths; } }
-  @include bp($xxxl) { &-xxxl- { @include column-widths; } }
+  @include bp($sm)   { &-sm-- { @include column-widths; } }
+  @include bp($md)   { &-md-- { @include column-widths; } }
+  @include bp($lg)   { &-lg-- { @include column-widths; } }
+  @include bp($xl)   { &-xl-- { @include column-widths; } }
+  @include bp($xxl)  { &-xxl-- { @include column-widths; } }
+  @include bp($xxxl) { &-xxxl-- { @include column-widths; } }
 }

@@ -7,52 +7,46 @@ title: Home
 theme: dark
 
 background:
-  colour: 7a00ff
+  color: 7a00ff
   image: "banner/home.jpg"
 
-banner:
-  content: >
-    <p class="t t5 t-subtitle">Hamish Gray</p>
-    <p class="p--sm text--mono">
-      Digital Designer, Frontend Developer<br />
-      hamishjgray@gmail.com<br />
-      07449 736830<br />
-      London, United Kingdom
-    </p>
-    <div class="space--xl"></div>
-    <p class="p--xl">Hi, I'm Hamish!</p>
-    <p class="p--xl">I've learnt that great design is about creating logical systems to solve problems with elegant, timeless solutions. What drives me is being able to collaborate with interesting people to create solutions that satisfy their business and users goals, and make their dreams reality.</p>
+intro: >
+  <p class="t t6 t-subtitle">Hamish Gray</p>
+  <p class="t">
+    Digital Designer, Full-stack Developer, <br />
+    UX Specialist, Buzzword Lover<br />
+  </p>
+  <hr class="hr--left">
+  <p class="p--xl">Hi there!</p>
+  <p class="p--xl">Welcome to my tiny corner of the internet. I've been working in the field of design since 2009 with experience in everything from print and branding, to video editing and web development. My passion truly lies in developing brand systems that span all formats and create a joyful experience for people to discover.</p>
+  <p class="p--xl">Stay a while and explore my work, and please feel free to drop me a line. </p>
+  <div class="space--md"></div>
+  <a class="btn btn--outline btn--white-outline" href="mailto:hamishjgray@gmail.com">Get in touch</a>
 
 ---
-{% assign projects = site.html_pages | where:"group-parent","portfolio" | sort:"date" | reverse %}
 
-<div class="container vpad--lg">
-  <div class="space--xxl"></div>
+<div class="header__offset"></div>
+<div class="space--xxxxl"></div>
+<div class="container">
   <div class="row">
-    <div class="col">
-      <div class="width--xl">
-      {% if page.banner.content %}
-        {{page.banner.content | liquify}}
-      {% else %}
-        {% if page.banner.title-sup %}<h2 class="sub-title">{{page.banner.title-sup}}</h2>{% endif %}
-        <h1 class="banner-title">{% if page.banner.title %}{{page.banner.title}}{% else %}{{page.title}}{% endif %}</h1>
-        {% if page.banner.title-sub %}<h2 class="sub-title">{{page.banner.title-sub}}</h2>{% endif %}
-      {% endif %}
-      </div>
-    </div>
+    <div class="col col--6">{{page.intro}}</div>
+    <div class="col col--6"></div>
   </div>
 </div>
 
-<div class="page-break"></div>
+<div class="vpad--lg page-break"></div>
 
-<div class="container vpad--lg">
-  <h2 class="t t5 t-subtitle">The Work</h2>
+<div class="container">
+  <h2 class="t t6 t-subtitle">Work</h2>
   <div class="row row--left">
+    {% assign projects = strapi.collections.projects | sort: 'updated_at' | reverse %}
     {% for project in projects %}
-    <div class="col-12 vpad--xs">
-      <a href="{{project.url}}" class="js-project-link t t1 t--600" data-bg-colour="{{project.colour}}" data-bg-image="{{site.img}}/projects/{{project.id}}/banner.jpg" style="--colour: #{{project.colour}};">{{project.title}}</a>
+    <div class="col--12 vpad--sm">
+      <a href="{{ project.url | relative_url }}" class="js-project-link t t1 t--600" data-bg-image="{{project.banner_image.url}}" data-bg-colour="{{project.color}}" style="--colour: #{{project.color}};">{{project.title}}</a>
     </div>
     {% endfor %}
   </div>
+  <a class="btn btn--outline btn--white-outline" href="{{site.baseurl}}/work">View all work</a>
 </div>
+
 

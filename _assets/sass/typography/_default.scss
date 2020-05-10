@@ -29,31 +29,31 @@ body {
  *========================================*/
 
 .text {
- // colours
- &--white {
-   color: $grey-lightest;
-   .t { color: $white; }
- }
- &--black,
- &--default {
-   color: $grey-dark;
-   .t { color: $grey-darkest; }
- }
- // families
- &--mono { font-family: $font-mono; }
- // modifiers
- &--kern     { letter-spacing: .15em; }
- &--italic   { font-style: italic; }
- &--upper    { text-transform: uppercase; }
- // alignment
- &--left   { text-align: left; }
- &--right  { text-align: right; }
- &--center { text-align: center; }
- @include bp($lg) {
-   &--lg-left   { text-align: left; }
-   &--lg-right  { text-align: right; }
-   &--lg-center { text-align: center; }
- }
+  // colours
+  &--white {
+    color: $grey-lightest;
+    .t { color: $white; }
+  }
+  &--black,
+  &--default {
+    color: $grey-dark;
+    .t { color: $grey-darkest; }
+  }
+  // families
+  &--mono { font-family: $font-mono; }
+  // modifiers
+  &--kern     { letter-spacing: .15em; }
+  &--italic   { font-style: italic; }
+  &--upper    { text-transform: uppercase; }
+  // alignment
+  &--left   { text-align: left; }
+  &--right  { text-align: right; }
+  &--center { text-align: center; }
+  @include bp($lg) {
+    &--lg-left   { text-align: left; }
+    &--lg-right  { text-align: right; }
+    &--lg-center { text-align: center; }
+  }
 }
 
 em      { font-style: italic; }
@@ -93,10 +93,10 @@ ol li   { list-style-type: decimal; }
 
 hr {
   border: 0;
-  height: 1px;
-  background-color: rgba($grey-lightest,0.2);
-  margin: $s2 0;
-  .text--white & { background-color: rgba($grey-darkest,0.2); }
+  height: $s2;
+  background-color: rgba($grey-darkest,0.2);
+  margin: $s4 0;
+  .text--white & { background-color: rgba($grey-lightest,0.2); }
 }
 .hr {
   &--left { width: 80px; margin-left: 0; }
@@ -111,14 +111,14 @@ hr {
  *========================================*/
 
 * + ul,
-* + ol  { padding-top: $s-1; }
-li + li { padding-top: $s-3; }
-p + p { padding-top: $s-1; }
+* + ol  { margin-top: $s-1; }
+li + li { margin-top: $s-3; }
+p + p { margin-top: $s-1; }
 
 ul,
-ol { padding-top: $s2; padding-bottom: $s-2; }
+ol { margin-top: $s2; margin-bottom: $s-2; }
 
 // specific spacing for all titles, these should be adjusted once typefaces & content are added
-p + .title { padding-top: $s5; }
-.title + p { padding-top: $s-3; }
-.title + .title { padding-top: 0; padding-bottom: $s-3; }
+p + .title { margin-top: $s5; }
+.title + p { margin-top: $s-3; }
+.title + .title { margin-top: 0; padding-bottom: $s-3; }

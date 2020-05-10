@@ -1,9 +1,16 @@
 
+{% assign text = section.text %}
+
 <div class="container vpad--xl">
   <div class="row">
     <div class="container--xxl">
-      <h2 class="t t3 t--600">{{section.content.title}}</h2>
-      {{section.content.content}}
+      {% for text in text %}
+        {% if text.title %}
+          <div class="t {% if text.class %} {{text.class}} {% else %} t3 t--600 {% endif %}">{{text.content}}</div>
+        {% else %}
+          <p class="{% if text.class %} {{text.class}} {% else %} p--lg {% endif %}">{{text.content}}</p>
+        {% endif %}
+      {% endfor %}
     </div>
   </div>
 </div>

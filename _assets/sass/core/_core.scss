@@ -38,6 +38,17 @@ a {
   cursor: pointer;
 }
 
-
-
-
+// theme
+.theme {
+  &--dark {
+    color: $white;
+    & .t { color: $white; }
+    & hr { background-color: rgba($white,0.2); }
+  }
+  &--light {
+    color: $grey-dark;
+    & .t { color: $grey-darkest; }
+    & hr { background-color: rgba($grey-darkest,0.2); }
+    & .nav__link { color: $grey-darkest; }
+  }
+}

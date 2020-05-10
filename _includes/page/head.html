@@ -1,38 +1,31 @@
 
-<!-- JEKYLL VARIABLES -->
-<!-- page meta data -->
-{% if page.intro %}
-  {% assign meta-description = page.intro | strip_html | strip_newlines | truncate: 155 %}
-{% else %}
-  {% assign meta-description = site.description | truncate: 155 %}
-{% endif %}
-<!-- page meta title -->
-{% assign meta-title = page.title | prepend: ' · ' | prepend: site.title %}
-{% assign social-image-url = site.url | append: site.img | append: '/thumbnail/social.jpg' %}
+{% assign metaTitle = cms.title %}
+{% assign metaDescription = cms.metaDescription %}
+{% assign thumbnail = cms.thumbnail.url %}
 
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{{meta-title}}</title>
-  <meta name="description" content="{{meta-description}}">
+  <title>HGC • {{metaTitle}}</title>
+  <meta name="description" content="{{metaDescription}}">
   <!-- START Social Data -->
   <!-- Google / Search Engine Tags -->
-  <meta itemprop="name" content="{{meta-title}}">
-  <meta itemprop="description" content="{{meta-description}}">
-  <meta itemprop="image" content="{{social-image-url}}">
+  <meta itemprop="name" content="{{metaTitle}}">
+  <meta itemprop="description" content="{{metaDescription}}">
+  <meta itemprop="image" content="{{thumbnail}}">
   <!-- Facebook Meta Tags -->
   <meta property="og:url" content="{{site.url}}{{site.baseurl}}{{page.url}}">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="{{meta-title}}">
-  <meta property="og:description" content="{{meta-description}}">
-  <meta property="og:image" content="{{social-image-url}}">
+  <meta property="og:title" content="{{metaTitle}}">
+  <meta property="og:description" content="{{metaDescription}}">
+  <meta property="og:image" content="{{thumbnail}}">
   <!-- Twitter Meta Tags -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@secret_escapes">
-  <meta name="twitter:title" content="{{meta-title}}">
-  <meta name="twitter:description" content="{{meta-description}}">
-  <meta name="twitter:image" content="{{social-image-url}}">
+  <meta name="twitter:title" content="{{metaTitle}}">
+  <meta name="twitter:description" content="{{metaDescription}}">
+  <meta name="twitter:image" content="{{thumbnail}}">
   <!-- END Social Data -->
 
   <link href="https://fonts.googleapis.com/css?family=Merriweather:300,300i,400,400i,700,700i,900,900i|Noto+Serif" rel="stylesheet">

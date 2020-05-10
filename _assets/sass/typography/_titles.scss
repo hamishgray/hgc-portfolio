@@ -16,13 +16,17 @@
   &4 { font-size: $s2;  line-height: 1.36; }
   &5 { font-size: $s1;  line-height: 1.42; }
   &6 { font-size: $s0;  line-height: 1.45; }
+  &7 { font-size: $s0;  line-height: 1.45; }
+  &8 { font-size: $s0;  line-height: 1.45; }
   @include bp($lg){
     &1 { font-size: $s9; line-height: 1.1; }
-    &2 { font-size: $s6; line-height: 1.15; }
-    &3 { font-size: $s5; line-height: 1.2; }
-    &4 { font-size: $s3; line-height: 1.32; }
-    &5 { font-size: $s2; line-height: 1.32; }
-    &6 { font-size: $s1; line-height: 1.38; }
+    &2 { font-size: $s7; line-height: 1.15; }
+    &3 { font-size: $s6; line-height: 1.2; }
+    &4 { font-size: $s5; line-height: 1.32; }
+    &5 { font-size: $s4; line-height: 1.32; }
+    &6 { font-size: $s3; line-height: 1.32; }
+    &7 { font-size: $s2; line-height: 1.32; }
+    &8 { font-size: $s1; line-height: 1.38; }
   }
   // weights
   &--200 { font-weight: 200; }
@@ -35,8 +39,6 @@
   &--italic { font-style: italic; }
   &--kern   { letter-spacing: 0.15em; }
   &--upper   { text-transform: uppercase; }
-  // spacing
-  & + * { margin-top: $s1; }
 
   // pre-styled
   &-subtitle {

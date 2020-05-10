@@ -3,19 +3,30 @@
  *  Unique element based styles
  *========================================*/
 
-.theme {
-  &--dark {
-    color: $white;
-    & .t { color: $white; }
-    & hr { background-color: rgba($white,0.2); }
+
+
+.page-bg {
+  position: fixed;
+  top: 0; left: 0;
+  right: 0; bottom: 0;
+  z-index: $z-background;
+  background-color: $brand-darker;
+  &__image {
+    position: absolute;
+    top: 0; left: 0;
+    right: 0; bottom: 0;
+    @include background-attributes;
   }
-  &--light {
-    color: $grey-dark;
-    & .t { color: $grey-darkest; }
-    & hr { background-color: rgba($grey-darkest,0.2); }
-    & .nav__link { color: $grey-darkest; }
+  &--home &__image {
+    opacity: 0.2;
   }
 }
+
+
+.page-intro {
+  padding-top: $s14;
+}
+
 
 .page-break {
   position: relative;
@@ -37,55 +48,26 @@
 }
 
 
-.page-bg {
-  position: fixed;
-  top: 0; left: 0;
-  right: 0; bottom: 0;
-  z-index: $z-background;
-  background-color: $brand-darker;
-  &__image {
-    position: absolute;
-    top: 0; left: 0;
-    right: 0; bottom: 0;
-    @include background-attributes;
-  }
-  &--home &__image {
-    opacity: 0.2;
-  }
-}
-
-
-.post-tile {
-  @include transition;
-  background-color: rgba($white,0.1);
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 0 15px rgba($grey-darkest,0.05);
-  &:hover { box-shadow: 0 0 45px rgba($grey-darkest,0.1); }
-}
-
-
 .project-tile {
   @include transition();
-  background-size: 100% auto;
-  &:hover { background-size: 105% auto; }
+  position: relative;
   &__content {
     @include transition();
     position: absolute;
     z-index: 1;
     bottom: 0;
     left: 0;
-    right: 0;
-    padding: 0 15px;
+    padding: 0 30px;
     height: 0;
+    width: 100%;
     overflow: hidden;
-    background-color: $white;
-    color: $brand-darker;
+    background-color: $brand-darker;
+    & a { color: $white; }
   }
   &:hover &__content {
-    padding: 10px 15px;
-    height: 80px;
-    bottom: -40px;
+    padding: 30px;
+    height: 210px;
+    bottom: 0;
   }
 }
 
@@ -140,11 +122,4 @@
   }
 }
 
-
-// ===========================
-// PAGE STYLES
-
-.page--home {
-  // height: 100%; overflow: hidden; position: relative;
-}
 

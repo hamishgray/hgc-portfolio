@@ -101,7 +101,7 @@ $modaltransition-distance: 4em;
     height: $icon-size-sm;
     width: $icon-size-sm;
     background-color: rgba($white,0.8);
-    background-image: url('../img/icons/close-dark.svg');
+    background-image: url('../img//close-dark.svg');
     background-position: center;
     background-repeat: no-repeat;
     background-size: 1em;
@@ -192,11 +192,11 @@ $modaltransition-distance: 4em;
 
       &--next {
         right: 0;
-        background-image: url('../img/icons/arrow-right-dark.svg');
+        background-image: url('../img//arrow-right-dark.svg');
       }
       &--previous {
         left: 0;
-        background-image: url('../img/icons/arrow-left-dark.svg');
+        background-image: url('../img//arrow-left-dark.svg');
       }
     }
   }

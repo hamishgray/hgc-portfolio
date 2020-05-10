@@ -1,17 +1,17 @@
 
-{% assign imgs = section.img %}
+{% assign images = section.inline_image %}
 
 <div class="container vpad--xl">
 
-  {% if imgs.size > 1 %}
+  {% if images.size > 1 %}
 
     <div class="row">
-      {% assign cols = imgs.size %}
-      {% for img in imgs %}
+      {% assign cols = images.size %}
+      {% for image in images %}
       <div class="project__image col-{{ 12 | divided_by:cols }}">
-        <img src="{{site.img}}/projects/{{page.id}}/{{img.src}}">
-        {% if img.caption %}
-          <div class="project__caption">{{img.caption}}</div>
+        <img src="{{image.url}}">
+        {% if image.caption %}
+          <div class="project__caption">{{image.caption}}</div>
         {% endif %}
       </div>
       {% endfor %}
@@ -19,11 +19,11 @@
 
   {% else %}
 
-    {% for img in imgs %}
+    {% for image in images %}
     <div class="project__image">
-      <img src="{{site.img}}/projects/{{page.id}}/{{img.src}}">
-      {% if img.caption %}
-        <div class="project__caption">{{img.caption}}</div>
+      <img src="{{image.url}}">
+      {% if image.caption %}
+        <div class="project__caption">{{image.caption}}</div>
       {% endif %}
     </div>
     {% endfor %}
