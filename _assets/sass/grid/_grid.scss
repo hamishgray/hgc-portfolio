@@ -38,10 +38,10 @@
 
 
 // gutters
-$gutter-size-xl: $s4;
-$gutter-size-lg: $s3;
-$gutter-size:    $s2;
-$gutter-size-sm: $s1;
+$gutter-size-xl: $s8;
+$gutter-size-lg: $s6;
+$gutter-size:    $s4;
+$gutter-size-sm: $s2;
 $gutter-size-xs: $s0;
 .row {
   // default values
@@ -59,14 +59,14 @@ $gutter-size-xs: $s0;
   // default countering container padding
   margin-left: -$gutter-size-sm;
   margin-right: -$gutter-size-sm;
-  @include bp($md) {
+  @include bp($lg) {
     margin-left: -$gutter-size;
     margin-right: -$gutter-size;
   }
   & > div[class^="col"], & > div[class*=" col"] {
     padding-left: $gutter-size-sm;
     padding-right: $gutter-size-sm;
-    @include bp($md) {
+    @include bp($lg) {
       padding-left: $gutter-size;
       padding-right: $gutter-size;
     }
@@ -77,12 +77,12 @@ $gutter-size-xs: $s0;
     // default settings
     margin-left: -$gutter-size-sm; margin-right: -$gutter-size-sm;
     & > div[class^="col"], & > div[class*=" col"] { padding-left: $gutter-size-sm; padding-right: $gutter-size-sm; }
-    @include bp($md){
+    @include bp($lg){
       margin-left: -$gutter-size; margin-right: -$gutter-size;
       & > div[class^="col"], & > div[class*=" col"] { padding-left: $gutter-size; padding-right: $gutter-size; }
     }
     // modifiers all within a breakpoint
-    @include bp($md){
+    @include bp($lg){
       // .row--gutters-xs = extra small gutters
       &-xs {
         margin-left: -$gutter-size-xs; margin-right: -$gutter-size-xs;

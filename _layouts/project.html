@@ -2,20 +2,32 @@
 layout: default
 ---
 
-<div class="project__banner">
-  <div class="project__banner-wrap">
-    <div class="container vpad--xxxl">
-      <div class="width--md">
+{% include page/nav.html %}
 
+
+<div class="project {% if page.document.theme_dark %}theme--dark{% else %}theme--light{% endif %}">
+
+  {% if page.document.banner_image %}
+  <div class="project__bg" style="background-color: #{{page.document.theme_color}};">
+    <div class="project__bg__image js-fade" style="background-image: url({{page.document.banner_image.url}});"></div>
+  </div>
+  {% endif %}
+
+
+
+
+  <div class="project__banner">
+    <div class="container container--xxl">
+      {% if page.document.banner_subtitle %}
         <div class="t t4 t-subtitle vpad--xs">{{page.document.banner_subtitle}}</div>
-        <h1 class="t t-banner">{{page.document.banner_title}}</h1>
-
-      </div>
+      {% endif %}
+      <h1 class="t t-banner">{{page.document.banner_title}}</h1>
+      <div class="space--xxl"></div>
     </div>
   </div>
-</div>
 
-<div class="project">
+
+
 
   <div class="container container--xxl">
     <div class="row row--gutters-sm">
@@ -23,7 +35,7 @@ layout: default
       {% assign details = page.document.details %}
       {% for detail in details %}
         {% assign cols = details.size %}
-        <div class="col--{{ 12 | divided_by:cols }}">
+        <div class="col col--{{ 12 | divided_by:cols }}">
           <span class="t t--600 t--upper">{{detail.name}}</span><br />
           {% if detail.date %}
             <span class="p">{{detail.date | date: '%B %d, %Y'}}</span>
@@ -46,5 +58,6 @@ layout: default
       {% include project/content.html %}
     {% endif %}
   {% endfor %}
+
 
 </div>

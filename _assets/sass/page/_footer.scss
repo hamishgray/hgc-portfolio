@@ -4,14 +4,15 @@
  *========================================*/
 
 .footer {
-
+  position: relative;
+  z-index: 1;
   &__wrap {
     @include page-padding;
     padding-bottom: $s8;
     text-align: center;
   }
-
-  // spacing for multiple logos in site footer
-  .logo + .logo { margin-left: $s0; }
-
+  &__logo {
+    display: inline-block;
+    max-width: 80px;
+  }
 }

@@ -14,7 +14,7 @@
 @mixin page-padding {
   padding-left: $s2;
   padding-right: $s2;
-  @include bp($md){
+  @include bp($lg){
     padding-left: $s4;
     padding-right: $s4;
   }

@@ -1,0 +1,42 @@
+
+/*========================================
+ *  Styles for the microsite nav
+ *========================================*/
+
+.nav {
+  position: fixed;
+  padding: $s2;
+  width: 100%;
+  background-color: $black;
+  z-index: $z-nav-upper;
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  &__logo {
+    max-width: 40px;
+    display: inline-block;
+    margin: auto;
+  }
+  &__item {
+    display: inline-block;
+    margin: auto;
+    text-align: center;
+    color: $white !important;
+  }
+
+  @include bp($lg){
+    top: 0;
+    left: 0;
+    padding: $s6 0;
+    width: 100px;
+    height: 100%;
+    flex-direction: column;
+    &__logo {
+      max-width: 60px;
+    }
+    &__item {
+      transform: rotate(-90deg);
+    }
+  }
+}
+

@@ -50,61 +50,49 @@ function queryString(sParam){
 
 
 ///////////////////////////////////////
-//    Banner fade
+//    Scroll fade
 ///////////////////////////////////////
 
-function bannerFade(){
+function scrollFade(){
   var st = $(document).scrollTop()*1.8;
   var wh = $(window).height();
   var opac = ((wh - st) / wh);
   if(opac>0.2){
-    $('.js-bg-fade').css({
+    $('.js-fade').css({
     	"opacity": opac
     });
   }else{
-    $('.js-bg-fade').css({
+    $('.js-fade').css({
       "opacity": "0.2"
     });
   }
 }
 
-$(document).ready(function() { bannerFade(); });
-$(document).scroll(function() { bannerFade(); });
+$(document).ready(function() { scrollFade(); });
+$(document).scroll(function() { scrollFade(); });
 
 
 
-var bg = $('.page-bg--home');
-var bgImage = $('.page-bg--home .page-bg__image');
+///////////////////////////////////////
+//    BG image swap
+///////////////////////////////////////
 
-bgImage.hide();
+var bgContainer = $('.js-bg-image');
+var bgImage = bgContainer.children();
+var defaultImage = bgContainer.data('bg-image');
+
 $('.js-project-link').mouseenter(function(){
-  var projectColour = $(this).data('bg-colour');
   var projectImage = $(this).data('bg-image');
-  if( bg.hasClass('is-ready') ){
-    bgImage.css({
-      'background-color': '#' + projectColour ,
-      'background-image': 'url("' + projectImage + '")'
-    });
-    bg.removeClass('is-ready');
-    bgImage.fadeIn(1000);
-    bg.addClass('is-active');
-  }else{
-    setTimeout(function(){
-      bgImage.css({
-        'background-color': '#' + projectColour ,
-        'background-image': 'url("' + projectImage + '")'
-      });
-      bg.removeClass('is-ready');
-      bgImage.fadeIn(1000);
-      bg.addClass('is-active');
-    },1000);
-  }
-
-}).mouseleave(function(){
-  bg.removeClass('is-active');
-  bgImage.fadeOut(1000);
+  bgContainer.removeClass('is-active').fadeOut(1000);
   setTimeout(function(){
-    bg.addClass('is-ready');
+    bgImage.css({ 'background-image': 'url("' + projectImage + '")' });
+    bgContainer.fadeIn(1000).addClass('is-active');
+  },1000);
+}).mouseleave(function(){
+  bgContainer.removeClass('is-active').fadeOut(1000);
+  setTimeout(function(){
+    bgImage.css({ 'background-image': 'url("' + defaultImage + '")' });
+    bgContainer.fadeIn(1000).addClass('is-active');
   },1000);
 });
 

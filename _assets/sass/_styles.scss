@@ -1,32 +1,4 @@
 
-/*========================================
- *  Unique element based styles
- *========================================*/
-
-
-
-.page-bg {
-  position: fixed;
-  top: 0; left: 0;
-  right: 0; bottom: 0;
-  z-index: $z-background;
-  background-color: $brand-darker;
-  &__image {
-    position: absolute;
-    top: 0; left: 0;
-    right: 0; bottom: 0;
-    @include background-attributes;
-  }
-  &--home &__image {
-    opacity: 0.2;
-  }
-}
-
-
-.page-intro {
-  padding-top: $s14;
-}
-
 
 .page-break {
   position: relative;
@@ -48,78 +20,138 @@
 }
 
 
-.project-tile {
-  @include transition();
+
+/*=============================
+* HOME PAGE
+*/
+
+
+.hp__pane {
   position: relative;
-  &__content {
-    @include transition();
-    position: absolute;
-    z-index: 1;
-    bottom: 0;
-    left: 0;
-    padding: 0 30px;
-    height: 0;
-    width: 100%;
-    overflow: hidden;
-    background-color: $brand-darker;
-    & a { color: $white; }
+  z-index: 0; width: 100%;
+  @include bp($lg){
+    position: fixed;
+    top: 0; left: 0; bottom: 0;
+    height: 100%;
+    width: 50%;
+    border-right: 1px solid rgba($white,0.2);
   }
-  &:hover &__content {
-    padding: 30px;
-    height: 210px;
-    bottom: 0;
+  &__background {
+    position: fixed;
+    top: 0; left: 0;
+    right: 0; bottom: 0;
+    opacity: 0.2;
+    &-image {
+      position: absolute;
+      top: 0; left: 0;
+      right: 0; bottom: 0;
+      background-position: center right;
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+    @include bp($lg){
+      position: absolute;
+    }
+  }
+  &__logo {
+    opacity: 1;
+    position: relative;
+    width: 30%;
+    margin: $s4;
+    @include background-attributes;
+    &:before {
+      content: "";
+      display: block;
+      width: 100%;
+      padding-top: 100%;
+    }
+    @include bp($lg){
+      opacity: 0.33;
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      margin: 0;
+    }
+  }
+}
+.hp__content {
+  position: relative;
+  z-index: 1;
+}
+
+.hp__offset {
+  position: relative;
+  width: 100%;
+  &:before {
+    content: "";
+    display: block;
+    width: 100%;
+    padding-top: $s2;
+  }
+  @include bp($lg){
+    &:before { padding-top: 22%; }
   }
 }
 
+.hp__intro {
+  width: 100%;
+  @include bp($lg){
+    padding-left: 50%;
+  }
+}
+
+
+.hp__work {
+  width: 100%;
+  @include bp($lg){
+    padding-left: 40%;
+  }
+}
+
+.hp__project-tile {
+  position: relative;
+  @include transition;
+  &__link {
+    position: absolute;
+    left: 0; top: 0;
+    right: 0; bottom: 0;
+    z-index: 10;
+  }
+  &:hover {
+    padding: 10px;
+  }
+  &__image { background-size: 100% auto; }
+  &:hover &__image { background-size: 110% auto; }
+}
+
+
+/*=============================
+* PROJECT PAGE
+*/
 
 .project {
   position: relative;
-  z-index: 1;
-  &__bg {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    z-index: 0;
-    @include background-attributes();
-  }
-  &__banner {
-    height: 100%;
-    position: relative;
-    &-wrap {
-      position: relative;
-      z-index: 5;
-      display: flex;
-      width: 100%;
-      height: 100%;
-      flex-grow: 1;
-      flex-direction: column;
-      justify-content: flex-end;
-      overflow: hidden;
-    }
-  }
-  &__image {
-    max-width: 1140px;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
-  }
-  &__caption {
-    color: $white;
-    margin-top: $s2;
-    padding: $s-2 $s2;
-    border-bottom: 1px solid rgba($white,0.2);
-    text-align: center;
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 0.15em;
-    font-size: $s-1;
-    max-width: $xxl;
-    margin-left: auto;
-    margin-right: auto;
-    display: inline-block;
+  padding-top: 65vh;
+  @include bp($lg){
+    padding-left: 100px;
   }
 }
+
+.project__bg {
+  position: fixed;
+  top: 0; left: 0;
+  bottom: 0; right: 0;
+  z-index: $z-background;
+  &__image {
+    position: absolute;
+    top: 0; left: 0;
+    right: 0; bottom: 0;
+    background-position: center right;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+}
+
+
 
 

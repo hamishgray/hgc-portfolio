@@ -11,42 +11,70 @@ background:
   image: "banner/home.jpg"
 
 intro: >
-  <p class="t t6 t-subtitle">Hamish Gray</p>
-  <p class="t">
-    Digital Designer, Full-stack Developer, <br />
-    UX Specialist, Buzzword Lover<br />
-  </p>
+  <p class="t t5 t-subtitle">Hamish Gray</p>
+  <p class="t t8">Digital Designer, Front-end Developer</p>
   <hr class="hr--left">
   <p class="p--xl">Hi there!</p>
-  <p class="p--xl">Welcome to my tiny corner of the internet. I've been working in the field of design since 2009 with experience in everything from print and branding, to video editing and web development. My passion truly lies in developing brand systems that span all formats and create a joyful experience for people to discover.</p>
+  <p class="p--xl">Welcome to my little corner of the internet. I've been working in the field of design since 2009 with experience in everything from print and branding, to video editing and web development. My passion truly lies in developing brand systems that span all formats and create a joyful experience for people to discover.</p>
   <p class="p--xl">Stay a while and explore my work, and please feel free to drop me a line. </p>
-  <div class="space--md"></div>
+  <div class="space--lg"></div>
   <a class="btn btn--outline btn--white-outline" href="mailto:hamishjgray@gmail.com">Get in touch</a>
 
 ---
+{% assign cms = strapi.collections.sites[0] %}
 
-<div class="header__offset"></div>
-<div class="space--xxxxl"></div>
-<div class="container">
-  <div class="row">
-    <div class="col col--6">{{page.intro}}</div>
-    <div class="col col--6"></div>
+
+
+<div class="hp__pane">
+  <div class="hp__pane__background js-bg-image is-active" data-bg-image="{{cms.hero_image.url}}">
+    <div class="hp__pane__background-image" style="background-image: url({{cms.hero_image.url}});"></div>
+  </div>
+  <div class="js-fade">
+    <div class="hp__pane__logo" style="background-image: url({{cms.logo_white.url}});"></div>
   </div>
 </div>
 
-<div class="vpad--lg page-break"></div>
+<div class="hp__content">
 
-<div class="container">
-  <h2 class="t t6 t-subtitle">Work</h2>
-  <div class="row row--left">
-    {% assign projects = strapi.collections.projects | sort: 'updated_at' | reverse %}
-    {% for project in projects %}
-    <div class="col--12 vpad--sm">
-      <a href="{{ project.url | relative_url }}" class="js-project-link t t1 t--600" data-bg-image="{{project.banner_image.url}}" data-bg-colour="{{project.color}}" style="--colour: #{{project.color}};">{{project.title}}</a>
+  <div class="hp__offset"></div>
+  <div class="hp__intro text--white">
+    <div class="hpad--xxl">
+      {{page.intro}}
     </div>
-    {% endfor %}
   </div>
-  <a class="btn btn--outline btn--white-outline" href="{{site.baseurl}}/work">View all work</a>
-</div>
 
+  <div class="vpad--lg page-break"></div>
+
+  <div class="hp__work">
+    <div class="container">
+      <div class="row">
+        {% assign projects = strapi.collections.projects | sort: 'updated_at' | reverse %}
+        {% for project in projects %}
+        <div class="col col--6">
+          <div class="hp__project-tile text--white js-project-link" data-bg-image="{{project.banner_image.url}}">
+            <a href="{{ project.url | relative_url }}" class="hp__project-tile__link"></a>
+            <div class="hp__project-tile__image img img--1-1" style="background-image: url({{project.thumbnail.url}});"></div>
+            <div class="space--md"></div>
+            <div class="t t8 t--600">{{project.title}}</div>
+            <div class="t">
+              {% for detail in project.details %}
+                {% if detail.name == 'Scope' %}
+                  {{detail.text}}
+                {% endif %}
+              {% endfor %}</div>
+          </div>
+          <div class="space--xl"></div>
+        </div>
+        {% endfor %}
+      </div>
+      <div class="row">
+        <div class="col col--12">
+          <div class="space--xxl"></div>
+          <p class="p--xl">That's all for now. In the meantime, please do <a href="mailto:hamishjgray@gmail.com">get in touch</a></p>
+          <p class="p--xl">Thanks, Hamish</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 

@@ -23,11 +23,6 @@ strapi:
     collections:
         sites:
             type: sites
-        posts:
-            type: posts
-            permalink: /posts/:slug/
-            layout: post.html
-            output: true
         projects:
             type: projects
             permalink: /projects/:slug/

@@ -5,16 +5,11 @@
 
   {% include page/head.html %}
 
-  <body class="{% if page.document.theme_dark %}theme--dark{% elsif page.theme %}theme--{{page.theme}}{% endif %}">
+  <body>
 
     {% include components/tracking.html %}
 
-    {% include page/header.html %}
-    {% include page/background.html %}
-
     {{ content }}
-
-    {% include modal/modal.html %}
 
     {% include page/footer.html %}
 
