@@ -1,25 +1,8 @@
 ---
 layout: default
 id: home
-nav: true
-nav-order: 1
 title: Home
 theme: dark
-
-background:
-  color: 7a00ff
-  image: "banner/home.jpg"
-
-intro: >
-  <p class="t t5 t-subtitle">Hamish Gray</p>
-  <p class="t t8">Digital Designer, Front-end Developer</p>
-  <hr class="hr--left">
-  <p class="p--xl">Hi there!</p>
-  <p class="p--xl">Welcome to my little corner of the internet. I've been working in the field of design since 2009 with experience in everything from print and branding, to video editing and web development. My passion truly lies in developing brand systems that span all formats and create a joyful experience for people to discover.</p>
-  <p class="p--xl">Stay a while and explore my work, and please feel free to drop me a line. </p>
-  <div class="space--lg"></div>
-  <a class="btn btn--outline btn--white-outline" href="mailto:hamishjgray@gmail.com">Get in touch</a>
-
 ---
 {% assign cms = strapi.collections.sites[0] %}
 
@@ -39,11 +22,20 @@ intro: >
   <div class="hp__offset"></div>
   <div class="hp__intro text--white">
     <div class="hpad--xxl">
-      {{page.intro}}
+
+      <p class="t t5 t-subtitle">Hamish Gray</p>
+      <p class="t t8">Digital designer, front-end developer</p>
+      <hr class="hr--left">
+      <p class="p--xl">Hi there!</p>
+      <p class="p--xl">Welcome to my little corner of the internet. I've been working in the field of design since 2009 with experience in everything from print and branding, to video editing and web development. My passion truly lies in developing brand systems that span all formats and create a joyful experience for people to discover.</p>
+      <p class="p--xl">Stay a while and explore my work, and please feel free to drop me a line. </p>
+      <div class="space--lg"></div>
+      <a class="btn btn--outline btn--white-outline" href="mailto:hamishjgray@gmail.com">Get in touch</a>
+
     </div>
   </div>
 
-  <div class="vpad--lg page-break"></div>
+  <div class="vpad--xxl"></div>
 
   <div class="hp__work">
     <div class="container">
@@ -64,6 +56,15 @@ intro: >
               {% endfor %}</div>
           </div>
           <div class="space--xl"></div>
+        </div>
+        {% endfor %}
+      </div>
+      <div class="row row--gutters-xs">
+        {% assign clients = strapi.collections.clients %}
+        {% for client in clients %}
+        <div class="col col--2">
+          <div class="img img--1-1" style="background-image: url({{client.logo.url}});"></div>
+          <div class="space--lg"></div>
         </div>
         {% endfor %}
       </div>

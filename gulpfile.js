@@ -12,6 +12,7 @@ var concat       = require('gulp-concat');
 var uglify       = require('gulp-uglify');
 var image        = require('gulp-image');
 var htmlmin      = require('gulp-htmlmin');
+var awspublish   = require('gulp-awspublish');
 
 
 /////////////////////////////////////////////////////////////////////  utilities
@@ -192,6 +193,24 @@ function compressHtml() {
   .pipe(gulp.dest('./_site'));
 }
 
+// Publish to AWS S3
+function publishAWS() {
+  var publisher = awspublish.create({
+    region: 'eu-west-2',
+    params: {
+      Bucket: 'www.hamishgray.co'
+    }
+  });
+  var headers = {
+    'Cache-Control': 'max-age=315360000, no-transform, public'
+  };
+  return gulp.src('./_site/**')
+    .pipe(awspublish.gzip())
+    .pipe(publisher.publish(headers))
+    .pipe(publisher.cache())
+    .pipe(awspublish.reporter());
+}
+
 
 
 ///////////////////////////////////////////////////////////////////  build tasks
@@ -232,4 +251,11 @@ exports.default = gulp.series(
 exports.compile = gulp.series(
   build,
   compress
+);
+
+// compress & complie the site for uploading to live server
+exports.publish = gulp.series(
+  build,
+  compress,
+  publishAWS
 );

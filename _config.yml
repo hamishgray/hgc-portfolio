@@ -23,6 +23,8 @@ strapi:
     collections:
         sites:
             type: sites
+        clients:
+            type: clients
         projects:
             type: projects
             permalink: /projects/:slug/

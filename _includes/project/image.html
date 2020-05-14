@@ -8,7 +8,7 @@
     <div class="row">
       {% assign cols = images.size %}
       {% for image in images %}
-      <div class="project__image col-{{ 12 | divided_by:cols }}">
+      <div class="project__image col col--{{ 12 | divided_by:cols }}">
         <img src="{{image.url}}">
         {% if image.caption %}
           <div class="project__caption">{{image.caption}}</div>
