@@ -1,0 +1,16 @@
+
+/*========================================
+ *  Text classes and styles
+ *  [general modifier styles for text]
+ *========================================*/
+
+.p {
+  font-weight: 300;
+  &--xxxxl  { font-size: $s5; }
+  &--xxxl   { font-size: $s4; }
+  &--xxl    { font-size: $s3; }
+  &--xl     { font-size: $s2; }
+  &--lg     { font-size: $s1; }
+  &--md     { font-size: $s0; }
+  &--sm     { font-size: $s-1; }
+}

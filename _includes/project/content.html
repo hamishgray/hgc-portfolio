@@ -1,16 +1,14 @@
 
-{% assign text = section.text %}
 
 <div class="container vpad--xl">
   <div class="row">
     <div class="container--xxl">
-      {% for text in text %}
-        {% if text.title %}
-          <div class="t {% if text.class %} {{text.class}} {% else %} t3 t--600 {% endif %}">{{text.content}}</div>
-        {% else %}
-          <p class="{% if text.class %} {{text.class}} {% else %} p--lg {% endif %}">{{text.content}}</p>
+        {% if section.title %}
+          <div class="h {% if section.title_style %} h--{{section.title_style}} {% else %} h--xl {% endif %} text--600">{{section.title}}</div>
         {% endif %}
-      {% endfor %}
+        <div class="p--{{section.paragraph_style}}">
+          {{section.content | markdownify}}
+        </div>
     </div>
   </div>
 </div>

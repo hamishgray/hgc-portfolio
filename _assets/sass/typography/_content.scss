@@ -1,0 +1,117 @@
+
+
+/*========================================
+ *  Typography HTML elements and helpers
+ *========================================*/
+
+.text {
+  // colours
+  &--light {
+    color: $grey-lightest;
+    .h { color: $white; }
+  }
+  &--dark,
+  &--default {
+    color: $grey-dark;
+    .h { color: $grey-darkest; }
+  }
+  // families
+  &--mono { font-family: $font-mono; }
+  // modifiers
+  &--kern     { letter-spacing: .15em; }
+  &--italic   { font-style: italic; }
+  &--upper    { text-transform: uppercase; }
+  // alignment
+  &--left   { text-align: left; }
+  &--right  { text-align: right; }
+  &--center { text-align: center; }
+  // weights
+  &--200 { font-weight: 200; }
+  &--300 { font-weight: 300; }
+  &--400 { font-weight: 400; }
+  &--500 { font-weight: 500; }
+  &--600 { font-weight: 600; }
+  &--700 { font-weight: 700; }
+}
+
+em      { font-style: italic; }
+strong  { font-weight: 700; }
+sup {
+  font-size: $s-1;
+  line-height: 0;
+  vertical-align: super;
+}
+
+// standard inline link style
+a[href]:not([class]) {
+  display: inline-block;
+  font-weight: 500;
+  &:after {
+    content: "";
+    width: 100%;
+    position: relative;
+    display: block;
+    height: 2px;
+    background-color: rgba($white,0.4);
+    @include transition;
+  }
+  &:hover:after { background-color: rgba($white,1); }
+}
+
+li {
+  list-style-position:
+  outside; margin-left: $s1;
+}
+ul li   { list-style-type: disc; }
+ol li   { list-style-type: decimal; }
+
+.list {
+  &--lined {
+    padding: $s0 0;
+    & li {
+      list-style: none;
+      margin-left: 0;
+      padding: $s0 0;
+      border-bottom: 1px solid rgba($white,0.2);
+      &:first-child { border-top: 1px solid rgba($white,0.2); }
+    }
+  }
+}
+
+hr {
+  border: 0;
+  height: $s2;
+  background-color: rgba($grey-darkest,0.2);
+  margin: $s4 0;
+  .text--white & { background-color: rgba($grey-lightest,0.2); }
+}
+.hr {
+  &--left { width: 80px; margin-left: 0; }
+  &--center { width: 80px; margin-left: auto; margin-right: auto; }
+  &--right { width: 80px; margin-right: 0; }
+}
+
+
+
+/*========================================
+ *  Typography spacing
+ *========================================*/
+
+* + ul,
+* + ol  { margin-top: $s-1; }
+li + li { margin-top: $s-3; }
+p + p { margin-top: $s-1; }
+
+ul,
+ol { margin-top: $s2; margin-bottom: $s-2; }
+
+// specific spacing for all titles, these should be adjusted once typefaces & content are added
+p + .title { margin-top: $s5; }
+.title + p { margin-top: $s-3; }
+.title + .title { margin-top: 0; padding-bottom: $s-3; }
+
+
+.separator {
+  color: rgba($white,0.4);
+  margin: 0 10px;
+}

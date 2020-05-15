@@ -4,11 +4,10 @@
 <footer class="footer">
   <div class="footer__wrap">
     <div>
-      {% assign cms = strapi.collections.sites[0] %}
-      {% if page.document.theme_dark or page.theme == 'dark' %}
-        {% assign logo = cms.logo_white.url %}
+      {% if page.document.theme == 'dark' or page.theme == 'dark' %}
+        {% assign logo = site.logo %}
       {% else %}
-        {% assign logo = cms.logo.url %}
+        {% assign logo = site.logo-dark %}
       {% endif %}
       <a href="/" class="footer__logo" >
         <img src="{{logo}}" alt="HGC logo">

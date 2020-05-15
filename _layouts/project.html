@@ -5,57 +5,65 @@ layout: default
 {% include page/nav.html %}
 
 
-<div class="project {% if page.document.theme_dark %}theme--dark{% else %}theme--light{% endif %}">
+<div class="project theme--{{page.document.theme}}">
 
   <div class="project__bg" style="background-color: #{{page.document.theme_color}};">
-    <div class="project__bg__image js-fade" style="background-image: url({{page.document.banner_image.url}});"></div>
+    <div class="project__bg__image js-fade" style="background-image: url({{page.document.banner.image.url}});"></div>
   </div>
-
 
 
 
   <div class="project__banner">
     <div class="container container--xxl">
-      {% if page.document.banner_subtitle %}
-        <div class="t t4 t-subtitle vpad--xs">{{page.document.banner_subtitle}}</div>
+      {% if page.document.banner.subtitle %}
+        <div class="h h--lg h-subtitle vpad--xs">{{page.document.banner.subtitle}}</div>
       {% endif %}
-      <h1 class="t t-banner">{{page.document.banner_title}}</h1>
+      <h1 class="h h--banner">{{page.document.banner.title}}</h1>
       <div class="space--xxl"></div>
     </div>
   </div>
 
 
 
-
   <div class="container container--xxl">
     <div class="row row--gutters-sm">
-
       {% assign details = page.document.details %}
-      {% for detail in details %}
-        {% assign cols = details.size %}
-        <div class="col col--{{ 12 | divided_by:cols }}">
-          <span class="t t--600 t--upper">{{detail.name}}</span><br />
-          {% if detail.date %}
-            <span class="p">{{detail.date | date: '%B %d, %Y'}}</span>
-          {% else %}
-            <span class="p">{{detail.text}}</span>
-          {% endif %}
+      {% if details.client %}
+        <div class="col col--4">
+          <span class="h text--600 text--upper">Client</span><br />
+          <span class="p">{{details.client}}</span>
           <hr>
         </div>
-      {% endfor %}
-
+      {% endif %}
+      {% if details.scope %}
+        <div class="col col--4">
+          <span class="h text--600 text--upper">Scope</span><br />
+          <span class="p">{{details.scope}}</span>
+          <hr>
+        </div>
+      {% endif %}
+      {% if details.date %}
+        <div class="col col--4">
+          <span class="h text--600 text--upper">Date</span><br />
+          <span class="p">{{details.date | date: '%B %d, %Y'}}</span>
+          <hr>
+        </div>
+      {% endif %}
     </div>
   </div>
 
-  {% for section in page.document.sections %}
-    {% if section.inline_image.size > 0 %}
-      {% include project/image.html %}
-    {% elsif section.banner_image.size > 0 %}
-      {% include project/banner.html %}
-    {% else %}
+
+
+  {% for section in page.document.page_sections %}
+    {% if section.__component == 'project.text-block' %}
       {% include project/content.html %}
+    {% elsif section.__component == 'project.image' %}
+      {% include project/image.html %}
+    {% elsif section.__component == 'project.image-fullwidth' %}
+      {% include project/image-fullwidth.html %}
     {% endif %}
   {% endfor %}
+
 
 
 </div>

@@ -5,7 +5,6 @@ img:     "/_assets/img"
 css:     "/_assets/css"
 js:      "/_assets/js"
 
-
 # Build settings
 markdown: kramdown
 exclude: [node_modules, gulpfile.js, package.json, package-lock.json, js/script.js]
@@ -21,12 +20,17 @@ plugins:
 strapi:
     endpoint: http://localhost:1337
     collections:
-        sites:
-            type: sites
-        clients:
-            type: clients
         projects:
             type: projects
             permalink: /projects/:slug/
             layout: project.html
             output: true
+
+# Glocal variables
+title: Portfolio
+description:
+thumbnail:
+logo: https://hgc-cms.s3.eu-west-2.amazonaws.com/logo-white_f361f9a0a9.svg
+logo-dark: https://hgc-cms.s3.eu-west-2.amazonaws.com/logo-black_202778a579.svg
+background-image: 
+
