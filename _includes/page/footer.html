@@ -4,7 +4,7 @@
 <footer class="footer">
   <div class="footer__wrap">
     <div>
-      {% if page.document.theme == 'dark' or page.theme == 'dark' %}
+      {% if page.document.page.theme == 'dark' or page.theme == 'dark' %}
         {% assign logo = site.logo %}
       {% else %}
         {% assign logo = site.logo-dark %}

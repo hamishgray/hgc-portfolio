@@ -1,11 +1,38 @@
 
+{% if section.ratio == 'ratio_1_2' %}
+  {% assign ratio = "1-2" %}
+{% elsif section.ratio == 'ratio_2_3' %}
+  {% assign ratio = "2-3" %}
+{% elsif section.ratio == 'ratio_3_4' %}
+  {% assign ratio = "3-4" %}
+{% elsif section.ratio == 'ratio_1_1' %}
+  {% assign ratio = "1-1" %}
+{% elsif section.ratio == 'ratio_4_3' %}
+  {% assign ratio = "4-3" %}
+{% elsif section.ratio == 'ratio_3_2' %}
+  {% assign ratio = "3-2" %}
+{% elsif section.ratio == 'ratio_16_9' %}
+  {% assign ratio = "16-9" %}
+{% elsif section.ratio == 'ratio_2_1' %}
+  {% assign ratio = "2-1" %}
+{% elsif section.ratio == 'ratio_21_9' %}
+  {% assign ratio = "21-9" %}
+{% elsif section.ratio == 'ratio_3_1' %}
+  {% assign ratio = "3-1" %}
+{% endif %}
+
 <div class="container vpad--xl">
 
   <div class="project__image">
-    <img src="{{section.file.url}}">
+    {% if ratio %}
+      <div class="img img--{{ratio}}"></div>
+    {% else %}
+      <img src="{{section.file.url}}">
+    {% endif %}
     {% if section.caption %}
       <div class="project__caption">{{section.caption}}</div>
     {% endif %}
   </div>
 
 </div>
+{% assign ratio = %}

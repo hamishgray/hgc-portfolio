@@ -18,18 +18,17 @@ body {
   -webkit-text-size-adjust: 100%;
   font-weight: 300;
   line-height: 1.65;
-  letter-spacing: .015rem;
   color: $white;
   background-color: $brand-darker;
 }
 
 .theme--light {
   color: $grey-dark;
-  & .t { color: $grey-darkest; }
+  & .h { color: $grey-darkest; }
   & hr { background-color: rgba($grey-darkest,0.2); }
 }
 .theme--dark {
   color: $white;
-  & .t { color: $white; }
+  & .h { color: $white; }
   & hr { background-color: rgba($white,0.2); }
 }

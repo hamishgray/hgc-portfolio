@@ -83,7 +83,7 @@ hr {
   height: $s2;
   background-color: rgba($grey-darkest,0.2);
   margin: $s4 0;
-  .text--white & { background-color: rgba($grey-lightest,0.2); }
+  .text--light & { background-color: rgba($grey-lightest,0.2); }
 }
 .hr {
   &--left { width: 80px; margin-left: 0; }

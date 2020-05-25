@@ -7,8 +7,8 @@ theme: dark
 
 
 <div class="hp__pane">
-  <div class="hp__pane__background js-bg-image is-active" data-bg-image="">
-    <div class="hp__pane__background-image" style="background-image: url();"></div>
+  <div class="hp__pane__background js-bg-image is-active" data-bg-image="{{site.background-image}}">
+    <div class="hp__pane__background-image" style="background-image: url({{site.background-image}});"></div>
   </div>
   <div class="js-fade">
     <div class="hp__pane__logo" style="background-image: url({{site.logo}});"></div>
@@ -18,11 +18,11 @@ theme: dark
 <div class="hp__content">
 
   <div class="hp__offset"></div>
-  <div class="hp__intro text--white">
+  <div class="hp__intro text--light">
     <div class="hpad--xxl">
 
-      <p class="t t5 t-subtitle">Hamish Gray</p>
-      <p class="t t8">Digital designer, front-end developer</p>
+      <h1 class="h h--md h--subtitle">Hamish Gray</h1>
+      <div class="h h--xxs">Digital designer, front-end developer</div>
       <hr class="hr--left">
       <p class="p--xl">Hi there!</p>
       <p class="p--xl">Welcome to my little corner of the internet. I've been working in the field of design since 2009 with experience in everything from print and branding, to video editing and web development. My passion truly lies in developing brand systems that span all formats and create a joyful experience for people to discover.</p>
@@ -38,15 +38,16 @@ theme: dark
   <div class="hp__work">
     <div class="container">
       <div class="row">
-        {% assign projects = strapi.collections.projects | sort: 'updated_at' | reverse %}
+        {% assign projects = strapi.collections.projects | sort: 'created_at' | reverse %}
         {% for project in projects %}
         <div class="col col--6">
-          <div class="hp__project-tile text--white js-project-link" data-bg-image="{{project.banner.image.url}}">
+          <div class="hp__project-tile text--light js-project-link" data-bg-image="{{project.page.hero.url}}">
             <a href="{{ project.url | relative_url }}" class="hp__project-tile__link"></a>
-            <div class="hp__project-tile__image img img--1-1" style="background-image: url({{project.banner.image.url}});"></div>
+            <div class="img img--1-1">
+              <div class="img__bg-img" style="background-image: url({{project.page.thumbnail.url}});"></div>
+            </div>
             <div class="space--md"></div>
-            <div class="t t8 t--600">{{project.banner.title}}</div>
-            <div class="t">{{project.details.scope}}</div>
+            <div class="h h--xxs text--600">{{project.page.title}}</div>
           </div>
           <div class="space--xl"></div>
         </div>

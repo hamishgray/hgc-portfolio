@@ -28,9 +28,9 @@ strapi:
 
 # Glocal variables
 title: Portfolio
-description:
+description: Welcome to my little corner of the internet. I've been working in the field of design since 2009 with experience in everything from print and branding, to video editing and web development. My passion truly lies in developing brand systems that span all formats and create a joyful experience for people to discover.
+logo: https://hgc-cms.s3.eu-west-2.amazonaws.com/logo-white_5a6c06e862.svg
+logo-dark: https://hgc-cms.s3.eu-west-2.amazonaws.com/logo-black_5ec699a07a.svg
+background-image: https://hgc-cms.s3.eu-west-2.amazonaws.com/hp-image_d405158856.jpeg
 thumbnail:
-logo: https://hgc-cms.s3.eu-west-2.amazonaws.com/logo-white_f361f9a0a9.svg
-logo-dark: https://hgc-cms.s3.eu-west-2.amazonaws.com/logo-black_202778a579.svg
-background-image: 
 

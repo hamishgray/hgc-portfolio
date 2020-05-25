@@ -5,10 +5,10 @@ layout: default
 {% include page/nav.html %}
 
 
-<div class="project theme--{{page.document.theme}}">
+<div class="project theme--{{page.document.page.theme}}">
 
-  <div class="project__bg" style="background-color: #{{page.document.theme_color}};">
-    <div class="project__bg__image js-fade" style="background-image: url({{page.document.banner.image.url}});"></div>
+  <div class="project__bg" style="background-color: #{{page.document.page.colour}};">
+    <div class="project__bg__image js-fade" style="background-image: url({{page.document.page.hero.url}});"></div>
   </div>
 
 
@@ -16,9 +16,15 @@ layout: default
   <div class="project__banner">
     <div class="container container--xxl">
       {% if page.document.banner.subtitle %}
-        <div class="h h--lg h-subtitle vpad--xs">{{page.document.banner.subtitle}}</div>
+        <div class="h h--md h--subtitle vpad--xs">{{page.document.banner.subtitle}}</div>
       {% endif %}
-      <h1 class="h h--banner">{{page.document.banner.title}}</h1>
+      <h1 class="h h--banner">
+        {% if page.document.banner.title %}
+          {{page.document.banner.title}}
+        {% else %}
+          {{page.document.page.title}}
+        {% endif %}
+      </h1>
       <div class="space--xxl"></div>
     </div>
   </div>
@@ -27,39 +33,25 @@ layout: default
 
   <div class="container container--xxl">
     <div class="row row--gutters-sm">
-      {% assign details = page.document.details %}
-      {% if details.client %}
-        <div class="col col--4">
-          <span class="h text--600 text--upper">Client</span><br />
-          <span class="p">{{details.client}}</span>
+      {% assign details = page.document.detail%}
+      {% for detail in details %}
+        <div class="col col--{{ 12 | divided_by: details.size }}">
+          <span class="h text--600 text--upper">{{detail.name}}</span><br />
+          <span class="p">{{detail.content}}</span>
           <hr>
         </div>
-      {% endif %}
-      {% if details.scope %}
-        <div class="col col--4">
-          <span class="h text--600 text--upper">Scope</span><br />
-          <span class="p">{{details.scope}}</span>
-          <hr>
-        </div>
-      {% endif %}
-      {% if details.date %}
-        <div class="col col--4">
-          <span class="h text--600 text--upper">Date</span><br />
-          <span class="p">{{details.date | date: '%B %d, %Y'}}</span>
-          <hr>
-        </div>
-      {% endif %}
+      {% endfor %}
     </div>
   </div>
 
 
 
-  {% for section in page.document.page_sections %}
-    {% if section.__component == 'project.text-block' %}
+  {% for section in page.document.sections %}
+    {% if section.__component == 'global.text-block' %}
       {% include project/content.html %}
-    {% elsif section.__component == 'project.image' %}
+    {% elsif section.__component == 'global.image-block' %}
       {% include project/image.html %}
-    {% elsif section.__component == 'project.image-fullwidth' %}
+    {% elsif section.__component == 'global.image-wide-block' %}
       {% include project/image-fullwidth.html %}
     {% endif %}
   {% endfor %}
