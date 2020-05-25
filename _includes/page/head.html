@@ -1,9 +1,10 @@
 
-{% if page.document.banner.title %}
-  {% assign title = page.document.banner.title %}
+{% if page.document.page.title %}
+  {% assign title = page.document.page.title %}
 {% else %}
   {% assign title = site.title %}
 {% endif %}
+
 {% assign description = site.description %}
 {% assign thumbnail = site.thumbnail %}
 

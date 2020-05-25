@@ -51,8 +51,12 @@ layout: default
       {% include project/content.html %}
     {% elsif section.__component == 'global.image-block' %}
       {% include project/image.html %}
+    {% elsif section.__component == 'global.image-gallery-block' %}
+      {% include project/image-gallery.html %}
     {% elsif section.__component == 'global.image-wide-block' %}
       {% include project/image-fullwidth.html %}
+    {% elsif section.__component == 'global.video-block' %}
+      {% include project/video.html %}
     {% endif %}
   {% endfor %}
 

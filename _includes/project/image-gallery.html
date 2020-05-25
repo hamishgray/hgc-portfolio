@@ -1,34 +1,17 @@
 
-{% assign images = section.inline_image %}
-
+{% assign slides = section.image %}
 <div class="container vpad--xl">
-
-  {% if images.size > 1 %}
-
-    <div class="row">
-      {% assign cols = images.size %}
-      {% for image in images %}
-      <div class="project__image col col--{{ 12 | divided_by:cols }}">
-        <img src="{{image.url}}">
-        {% if image.caption %}
-          <div class="project__caption">{{image.caption}}</div>
-        {% endif %}
+  <div class="gallery" id="gallery__{{page.document.slug}}">
+    {% for slide in slides %}
+      <div class="gallery__slide{% if forloop.first%} is-open{% endif %}">
+        <div class="img img--16-9" style="background-image: url({{slide.file.url}});"></div>
       </div>
-      {% endfor %}
-    </div>
-
-  {% else %}
-
-    {% for image in images %}
-    <div class="project__image">
-      <img src="{{image.url}}">
-      {% if image.caption %}
-        <div class="project__caption">{{image.caption}}</div>
-      {% endif %}
-    </div>
     {% endfor %}
+    <div class="gallery__slide-sizer"></div>
 
-  {% endif %}
-
+    <div class="">
+      <div class="js-gallery-nav gallery__nav gallery__nav--next" data-target="gallery__{{page.document.slug}}" data-nav-direction="next"></div>
+      <div class="js-gallery-nav gallery__nav gallery__nav--previous" data-target="gallery__{{page.document.slug}}" data-nav-direction="prev"></div>
+    </div>
+  </div>
 </div>
-{% assign ratio = %}

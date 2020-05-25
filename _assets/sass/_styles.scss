@@ -133,6 +133,22 @@
   @include bp($lg){
     padding-left: 100px;
   }
+  &__video {
+    width: 100%;
+    position: relative;
+    &:before {
+      content: "";
+      display: block;
+      width: 100%;
+      padding-top: 56.25%;
+    }
+    &__embed,
+    & iframe {
+      position: absolute;
+      top: 0; bottom: 0;
+      left: 0; right: 0;
+    }
+  }
 }
 
 .project__bg {

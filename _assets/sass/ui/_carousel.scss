@@ -1,0 +1,84 @@
+
+
+/*== Carousel gallery ==*/
+// Used on project pages
+
+$icon-size-sm: 2.4em;
+$icon-size: 3.6em;
+
+.gallery {
+  position: relative;
+  display: block;
+  @include bp($lg){
+    margin-left: $icon-size;
+    margin-right: $icon-size;
+  }
+  &__slide-sizer {
+    position: relative;
+    z-index: 0;
+    visibility: hidden;
+    width: 100%;
+    &:before {
+      content: '';
+      display: block;
+      position: relative;
+      width: 100%;
+      padding-top: 56.25%;
+    }
+  }
+  &__slide {
+    @include modaltransition();
+    width: 100%;
+    max-height: 100%;
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 0;
+    opacity: 0;
+    &.is-open     { left: 0; opacity: 1; }
+    &.is-opening  { left: 0; opacity: 1; }
+    &.is-closing-next  { left: -$modaltransition-distance; opacity: 0; }
+    &.is-closing-prev  { left: $modaltransition-distance; opacity: 0; }
+    &.is-closed   { left: 0; opacity: 0; }
+    &.is-prev     { left: -$modaltransition-distance; }
+    &.is-next     { left: $modaltransition-distance; }
+  }
+
+  &__nav {
+
+    @include transition;
+    display: block;
+    position: absolute;
+    bottom: 0;
+    height: $icon-size-sm*1.5;
+    width: $icon-size;
+    z-index: $z-overlay-upper;
+    background-color: rgba($black,0.8);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 1em;
+    cursor: pointer;
+    user-select: none;
+    &:hover{ background-color: $black; }
+    @include bp($lg){
+      bottom: auto;
+      position: absolute;
+      top: 50%;
+      margin-top: -$icon-size;
+      height: $icon-size*2;
+    }
+
+    &--next {
+      background-image: url('../img/arrow-right.svg');
+      right: 0;
+    }
+    &--previous {
+      background-image: url('../img/arrow-left.svg');
+      left: 0;
+    }
+
+  }
+}
