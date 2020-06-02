@@ -1,114 +1,113 @@
 
 
-.page-break {
-  position: relative;
-  display: block;
-  margin: $s2 0;
-  width: 100%;
-  height: 1px;
-  &:before, &:after {
-    content: "";
-    height: 1px;
-    width: 80px;
-    display: block;
-    position: absolute;
-    background-color: rgba($grey-darkest, 0.4);
-    .theme--dark & { background-color: rgba($white, 0.4); }
-  }
-  &:before { left: 0; }
-  &:after { right: 0; }
-}
-
-
-
 /*=============================
 * HOME PAGE
 */
 
 
 .hp__pane {
+  @include transition(1s);
   position: relative;
   z-index: 0; width: 100%;
-  @include bp($lg){
+  opacity: 0;
+  @include bp($xl){
     position: fixed;
     top: 0; left: 0; bottom: 0;
     height: 100%;
     width: 50%;
     border-right: 1px solid rgba($white,0.2);
   }
-  &__background {
-    position: fixed;
-    top: 0; left: 0;
-    right: 0; bottom: 0;
-    opacity: 0.2;
-    &-image {
+  &-background {
+    display: none;
+    @include bp($xl){
+      display: block;
       position: absolute;
       top: 0; left: 0;
       right: 0; bottom: 0;
-      background-position: center right;
-      background-size: cover;
-      background-repeat: no-repeat;
-    }
-    @include bp($lg){
-      position: absolute;
+      opacity: 0;
+      &-image {
+        position: absolute;
+        top: 0; left: 0;
+        right: 0; bottom: 0;
+        background-position: center right;
+        background-size: cover;
+        background-repeat: no-repeat;
+      }
     }
   }
-  &__logo {
+  &-logo {
     opacity: 1;
     position: relative;
     width: 30%;
     margin: $s4;
-    @include background-attributes;
     &:before {
       content: "";
       display: block;
       width: 100%;
       padding-top: 100%;
     }
-    @include bp($lg){
-      opacity: 0.33;
+    @include bp($xl){
+      opacity: 0.25;
       position: absolute;
       top: 0; left: 0;
       width: 100%;
       margin: 0;
     }
+    // SVG lines
+  	.hp__pane-logo__path {
+      fill: none;
+      stroke:#FFFFFF;
+      stroke-width:1;
+      stroke-miterlimit:10;
+      // stroke-dasharray: 10000;
+      // stroke-dashoffset: 10000;
+      animation: dash 2s linear forwards;
+    }
+    @keyframes dash {
+      to {
+        stroke-dashoffset: 0;
+      }
+    }
+
   }
 }
 .hp__content {
-  position: relative;
+  @include transition(1s);
+  position: absolute;
+  left: 0; top: 0;
+  width: 100%;
   z-index: 1;
-}
+  opacity: 0;
 
-.hp__offset {
-  position: relative;
-  width: 100%;
-  &:before {
-    content: "";
-    display: block;
+  &-offset {
+    position: relative;
     width: 100%;
-    padding-top: $s2;
+    &:before {
+      content: "";
+      display: block;
+      width: 100%;
+      padding-top: $s2;
+    }
+    @include bp($xl){
+      &:before { padding-top: 22%; }
+    }
   }
-  @include bp($lg){
-    &:before { padding-top: 22%; }
+
+  &-text {
+    width: 100%;
+    @include bp($xl){
+      padding-left: 50%;
+    }
+  }
+
+  &-work {
+    width: 100%;
+    @include bp($xl){
+      padding-left: 40%;
+    }
   }
 }
-
-.hp__intro {
-  width: 100%;
-  @include bp($lg){
-    padding-left: 50%;
-  }
-}
-
-
-.hp__work {
-  width: 100%;
-  @include bp($lg){
-    padding-left: 40%;
-  }
-}
-
-.hp__project-tile {
+.hp__project {
   position: relative;
   @include transition;
   &__link {
@@ -123,14 +122,35 @@
 }
 
 
+body.ready {
+  .hp__pane {
+    opacity: 1;
+    &-background { opacity: 0.2; }
+  }
+  .hp__content { opacity: 1; }
+}
+
+body.exiting {
+  .hp__pane {
+    width: 100%;
+    &-logo { opacity: 0; }
+    &-background { opacity: 1 !important; }
+  }
+  .hp__content { left: 100%; }
+}
+
+
+
 /*=============================
 * PROJECT PAGE
 */
 
 .project {
+  @include transition(1s);
+  opacity: 0;
   position: relative;
   padding-top: 65vh;
-  @include bp($lg){
+  @include bp($xl){
     padding-left: 100px;
   }
   &__video {
@@ -152,6 +172,7 @@
 }
 
 .project__bg {
+  @include transition(1s);
   position: fixed;
   top: 0; left: 0;
   bottom: 0; right: 0;
@@ -166,6 +187,18 @@
   }
 }
 
+body.ready {
+  .project {
+    opacity: 1;
+  }
+}
+
+body.exiting {
+  .project__bg,
+  .project {
+    opacity: 0;
+  }
+}
 
 
 

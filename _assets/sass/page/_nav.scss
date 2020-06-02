@@ -22,11 +22,13 @@
     margin: auto;
     text-align: center;
     color: $white !important;
+    white-space: nowrap;
   }
 
   @include bp($lg){
+    @include transition(1s);
     top: 0;
-    left: 0;
+    left: -100px;
     padding: $s6 0;
     width: 100px;
     height: 100%;
@@ -36,6 +38,12 @@
     }
     &__item {
       transform: rotate(-90deg);
+    }
+    body.ready & {
+      left: 0;
+    }
+    body.exiting & {
+      left: -100px;
     }
   }
 }

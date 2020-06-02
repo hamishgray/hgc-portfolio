@@ -18,7 +18,7 @@
   // families
   &--mono { font-family: $font-mono; }
   // modifiers
-  &--kern     { letter-spacing: .15em; }
+  &--wide     { letter-spacing: .15em; }
   &--italic   { font-style: italic; }
   &--upper    { text-transform: uppercase; }
   // alignment
@@ -113,5 +113,6 @@ p + .title { margin-top: $s5; }
 
 .separator {
   color: rgba($white,0.4);
-  margin: 0 10px;
+  margin-right: $s0;
+  & + & { margin-left: $s0; }
 }

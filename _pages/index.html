@@ -6,58 +6,116 @@ theme: dark
 ---
 
 
+<!-- Left logo & image pane -->
 <div class="hp__pane">
-  <div class="hp__pane__background js-bg-image is-active" data-bg-image="{{site.background-image}}">
-    <div class="hp__pane__background-image" style="background-image: url({{site.background-image}});"></div>
+  <div class="hp__pane-background js-bg-image is-ready" data-bg-image="{{site.background-image}}">
+    <div class="hp__pane-background-image" style="background-image: url({{site.background-image}});"></div>
   </div>
-  <div class="js-fade">
-    <div class="hp__pane__logo" style="background-image: url({{site.logo}});"></div>
-  </div>
+  {% include components/logo.html %}
 </div>
 
-<div class="hp__content">
 
-  <div class="hp__offset"></div>
-  <div class="hp__intro text--light">
+<!-- Right content pane -->
+<div class="hp__content text--light">
+
+  <!-- Align text to logo -->
+  <div class="hp__content-offset"></div>
+
+  <!-- Intro -->
+  <div class="hp__content-text">
     <div class="hpad--xxl">
 
       <h1 class="h h--md h--subtitle">Hamish Gray</h1>
       <div class="h h--xxs">Digital designer, front-end developer</div>
       <hr class="hr--left">
       <p class="p--xl">Hi there!</p>
-      <p class="p--xl">Welcome to my little corner of the internet. I've been working in the field of design since 2009 with experience in everything from print and branding, to video editing and web development. My passion truly lies in developing brand systems that span all formats and create a joyful experience for people to discover.</p>
+      <p class="p--xl">Welcome to my little corner of the internet. I've been working in the field of design since 2009 with experience wide ranging experience from print and branding, to video editing and web development. My passion truly lies in developing brand systems that span all formats and create a joyful experience for people to discover.</p>
       <p class="p--xl">Stay a while and explore my work, and please feel free to drop me a line. </p>
       <div class="space--lg"></div>
       <a class="btn btn--outline btn--white-outline" href="mailto:hamishjgray@gmail.com">Get in touch</a>
+      <div class="space--xxxl"></div>
 
     </div>
   </div>
 
-  <div class="vpad--xxl"></div>
-
-  <div class="hp__work">
+  <!-- Work -->
+  <div class="hp__content-work">
     <div class="container">
-      <div class="row">
+      <div class="row row--left">
         {% assign projects = strapi.collections.projects | sort: 'created_at' | reverse %}
         {% for project in projects %}
-        <div class="col col--6">
-          <div class="hp__project-tile text--light js-project-link" data-bg-image="{{project.page.hero.url}}">
-            <a href="{{ project.url | relative_url }}" class="hp__project-tile__link"></a>
-            <div class="img img--1-1">
-              <div class="img__bg-img" style="background-image: url({{project.page.thumbnail.url}});"></div>
-            </div>
+        <div class="col col--12 col--xxxl-6">
+          <div class="hp__project js-project-link" data-bg-image="{{project.page.hero.url}}">
+            <a href="{{ project.url | relative_url }}" class="hp__project__link js-exit-link"></a>
+            <div class="img img--1-1" style="background-image: url({{project.page.thumbnail.url}});"></div>
             <div class="space--md"></div>
             <div class="h h--xxs text--600">{{project.page.title}}</div>
+            <div class="h p--md">
+            {% for detail in project.detail %}
+              <span class="separator">—</span> {{detail.content}}{% unless forloop.last %}<br />{% endunless%}
+            {% endfor %}
+            </div>
           </div>
-          <div class="space--xl"></div>
+          <div class="space--xxl"></div>
         </div>
         {% endfor %}
       </div>
-      <div class="row">
+    </div>
+  </div>
+  <!-- Clients & contact -->
+  <div class="hp__content-text">
+    <div class="hpad--xxl">
+      <hr class="hr--left">
+      <div class="row row--left">
         <div class="col col--12">
-          <div class="space--xxl"></div>
-          <p class="p--xl">That's all for now. In the meantime, please do <a href="mailto:hamishjgray@gmail.com">get in touch</a></p>
-          <p class="p--xl">Thanks, Hamish</p>
+          <h3 class="h h--md text--600 text--upper">Clients</h3>
+          <div class="space--sm"></div>
+        </div>
+        <div class="col col--4 p--lg">
+          Secret Escapes
+          <div class="space--sm"></div>
+        </div>
+        <div class="col col--4 p--lg">
+          Lexus
+          <div class="space--sm"></div>
+        </div>
+        <div class="col col--4 p--lg">
+          Nando's
+          <div class="space--sm"></div>
+        </div>
+        <div class="col col--4 p--lg">
+          Nikon
+          <div class="space--sm"></div>
+        </div>
+        <div class="col col--4 p--lg">
+          Belmoto
+          <div class="space--sm"></div>
+        </div>
+        <div class="col col--4 p--lg">
+          British Airways
+          <div class="space--sm"></div>
+        </div>
+        <div class="col col--4 p--lg">
+          Italy Tourism
+          <div class="space--sm"></div>
+        </div>
+        <div class="col col--4 p--lg">
+          Pandora
+          <div class="space--sm"></div>
+        </div>
+        <div class="col col--4 p--lg">
+          Line 7
+          <div class="space--sm"></div>
+        </div>
+      </div>
+      <hr class="hr--left">
+      <div class="row row--left">
+        <div class="col col--12">
+          <h3 class="h h--md text--600 text--upper">Let's talk</h3>
+          <div class="space--sm"></div>
+          <p class="p--lg">That's all for now. In the meantime, please do <a href="mailto:hamishjgray@gmail.com">get in touch</a></p>
+          <p class="p--lg">Thanks, Hamish</p>
+          <div class="space--xxxl"></div>
         </div>
       </div>
     </div>

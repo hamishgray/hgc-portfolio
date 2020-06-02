@@ -9,22 +9,11 @@ $icon-size: 3.6em;
 .gallery {
   position: relative;
   display: block;
-  @include bp($lg){
-    margin-left: $icon-size;
-    margin-right: $icon-size;
-  }
   &__slide-sizer {
     position: relative;
     z-index: 0;
     visibility: hidden;
     width: 100%;
-    &:before {
-      content: '';
-      display: block;
-      position: relative;
-      width: 100%;
-      padding-top: 56.25%;
-    }
   }
   &__slide {
     @include modaltransition();

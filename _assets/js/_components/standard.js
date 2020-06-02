@@ -18,12 +18,6 @@ $(function() {
 
 
 ///////////////////////////////////////
-//      inserts current year
-///////////////////////////////////////
-$('.js-year').html(new Date().getFullYear());
-
-
-///////////////////////////////////////
 //      detects touch device
 ///////////////////////////////////////
 if ("ontouchstart" in document.documentElement){
@@ -74,26 +68,65 @@ $(document).scroll(function() { scrollFade(); });
 
 
 ///////////////////////////////////////
+//    Animate logo paths
+///////////////////////////////////////
+
+var path = $('.hp__pane-logo__path');
+$('.hp__pane-logo__path').each(function(){
+  var length = this.getTotalLength();
+  $(this).css({ 'stroke-dasharray': length });
+  $(this).css({ 'stroke-dashoffset': length });
+});
+
+
+
+///////////////////////////////////////
 //    BG image swap
 ///////////////////////////////////////
 
-var bgContainer = $('.js-bg-image');
-var bgImage = bgContainer.children();
-var defaultImage = bgContainer.data('bg-image');
+
+function bgImageChange(background){
+  var bgContainer = $('.js-bg-image');
+  var bgImage = bgContainer.children();
+  // if not animating
+  if( bgContainer.hasClass('is-ready') ){
+    bgContainer.removeClass('is-ready');
+    bgContainer.fadeOut(1000);
+    setTimeout(function(){
+      bgImage.css({ 'background-image': 'url("' + background + '")' });
+      bgContainer.fadeIn(1000);
+      bgContainer.addClass('is-ready');
+    },1000);
+  }
+}
+
 
 $('.js-project-link').mouseenter(function(){
-  var projectImage = $(this).data('bg-image');
-  bgContainer.removeClass('is-active').fadeOut(1000);
-  setTimeout(function(){
-    bgImage.css({ 'background-image': 'url("' + projectImage + '")' });
-    bgContainer.fadeIn(1000).addClass('is-active');
-  },1000);
+  var background = $(this).data('bg-image');
+  bgImageChange(background);
 }).mouseleave(function(){
-  bgContainer.removeClass('is-active').fadeOut(1000);
+  var defaultBackground = $('.js-bg-image').data('bg-image');
   setTimeout(function(){
-    bgImage.css({ 'background-image': 'url("' + defaultImage + '")' });
-    bgContainer.fadeIn(1000).addClass('is-active');
+    bgImageChange(defaultBackground);
   },1000);
 });
 
 
+
+///////////////////////////////////////
+//    Page load out
+///////////////////////////////////////
+
+$('.js-exit-link').click(function(){
+  event.preventDefault();
+
+  var url = $(this).attr('href');
+  $('body').addClass('exiting');
+  setTimeout(function(){
+    document.location.href = url;
+  },1000);
+});
+
+$(document).ready(function(){
+  $('body').addClass('ready');
+});

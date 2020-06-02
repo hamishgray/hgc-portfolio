@@ -59,14 +59,14 @@ $gutter-size-xs: $s0;
   // default countering container padding
   margin-left: -$gutter-size-sm;
   margin-right: -$gutter-size-sm;
-  @include bp($lg) {
+  @include bp($xl) {
     margin-left: -$gutter-size;
     margin-right: -$gutter-size;
   }
   & > div[class^="col"], & > div[class*=" col"] {
     padding-left: $gutter-size-sm;
     padding-right: $gutter-size-sm;
-    @include bp($lg) {
+    @include bp($xl) {
       padding-left: $gutter-size;
       padding-right: $gutter-size;
     }
@@ -77,12 +77,12 @@ $gutter-size-xs: $s0;
     // default settings
     margin-left: -$gutter-size-sm; margin-right: -$gutter-size-sm;
     & > div[class^="col"], & > div[class*=" col"] { padding-left: $gutter-size-sm; padding-right: $gutter-size-sm; }
-    @include bp($lg){
+    @include bp($xl){
       margin-left: -$gutter-size; margin-right: -$gutter-size;
       & > div[class^="col"], & > div[class*=" col"] { padding-left: $gutter-size; padding-right: $gutter-size; }
     }
     // modifiers all within a breakpoint
-    @include bp($lg){
+    @include bp($xl){
       // .row--gutters-xs = extra small gutters
       &-xs {
         margin-left: -$gutter-size-xs; margin-right: -$gutter-size-xs;
@@ -137,12 +137,12 @@ $gutter-size-xs: $s0;
     &12  { flex: 0 0 100%; max-width: 100%; }
   }
   // default breakpoint for col widths
-  @include bp($lg) { &-- { @include column-widths; } }
+  @include bp($xl) { &-- { @include column-widths; } }
   // columns with other breakpoints
-  @include bp($sm)   { &-sm-- { @include column-widths; } }
-  @include bp($md)   { &-md-- { @include column-widths; } }
-  @include bp($lg)   { &-lg-- { @include column-widths; } }
-  @include bp($xl)   { &-xl-- { @include column-widths; } }
-  @include bp($xxl)  { &-xxl-- { @include column-widths; } }
-  @include bp($xxxl) { &-xxxl-- { @include column-widths; } }
+  @include bp($sm)   { &--sm- { @include column-widths; } }
+  @include bp($md)   { &--md- { @include column-widths; } }
+  @include bp($lg)   { &--lg- { @include column-widths; } }
+  @include bp($xl)   { &--xl- { @include column-widths; } }
+  @include bp($xxl)  { &--xxl- { @include column-widths; } }
+  @include bp($xxxl) { &--xxxl- { @include column-widths; } }
 }

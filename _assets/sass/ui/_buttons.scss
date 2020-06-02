@@ -8,7 +8,7 @@
   display: inline-block;
   padding: $s2 $s6 $s2*0.8;
   color: $white;
-  background-color: $brand;
+  background-color: $brand-light;
   font-family: $font-title;
   font-weight: 600;
   font-size: $s0;
@@ -21,11 +21,11 @@
   @include transition;
   &--sm { padding: $s0 $s3 $s0*0.8; font-size: $s-1; }
   &--lg { padding: $s2 $s6 $s2*0.9; font-size: $s1; }
-  &--brand { background-color: $brand;
-    &:hover { background-color: $brand-dark; }
+  &--brand { background-color: $brand-light;
+    &:hover { background-color: $brand; }
   }
-  &--white { background-color: $white; color: $brand;
-    &:hover { background-color: $white; color: $brand-darker; }
+  &--white { background-color: $white; color: $brand-light;
+    &:hover { background-color: $white; color: $brand; }
   }
   &--outline {
     color: inherit;
@@ -37,12 +37,12 @@
       left: 0;
       right: 0;
       bottom: 0;
-      border: 1px solid $brand;
+      border: 1px solid $brand-light;
       border-radius: inherit;
     }
     &:hover {
       color: $white;
-      background-color: $brand;
+      background-color: $brand-light;
     }
   }
   &--white-outline {
@@ -52,7 +52,7 @@
       border: 1px solid $white;
     }
     &:hover {
-      color: $brand;
+      color: $brand-light;
       background-color: $white;
     }
   }

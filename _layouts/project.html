@@ -5,12 +5,11 @@ layout: default
 {% include page/nav.html %}
 
 
+<div class="project__bg" style="background-color: #{{page.document.page.colour}};">
+  <div class="project__bg__image js-fade" style="background-image: url({{page.document.page.hero.url}});"></div>
+</div>
+
 <div class="project theme--{{page.document.page.theme}}">
-
-  <div class="project__bg" style="background-color: #{{page.document.page.colour}};">
-    <div class="project__bg__image js-fade" style="background-image: url({{page.document.page.hero.url}});"></div>
-  </div>
-
 
 
   <div class="project__banner">
@@ -63,3 +62,4 @@ layout: default
 
 
 </div>
+<div class="space--xxl"></div>

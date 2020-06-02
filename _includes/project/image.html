@@ -25,7 +25,7 @@
 
   <div class="project__image">
     {% if ratio %}
-      <div class="img img--{{ratio}}"></div>
+      <div class="img img--{{ratio}}" style="background-image: url({{section.file.url}});"></div>
     {% else %}
       <img src="{{section.file.url}}">
     {% endif %}
