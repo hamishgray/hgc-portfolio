@@ -160,7 +160,7 @@ body {
   font-weight: 300;
   line-height: 1.65;
   color: #fff;
-  background-color: #9eb9c3; }
+  background-color: #859db1; }
 
 .theme--light {
   color: #47484a; }
@@ -1114,17 +1114,23 @@ p + .title {
   z-index: 20;
   text-align: center;
   display: flex;
-  flex-direction: row; }
+  flex-direction: row;
+  align-items: center;
+  justify-content: center; }
   .nav__logo {
     max-width: 40px;
     display: inline-block;
     margin: auto; }
   .nav__item {
-    display: inline-block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
     margin: auto;
     text-align: center;
     color: #fff !important;
-    white-space: nowrap; }
+    white-space: nowrap;
+    width: 100%; }
   @media (min-width: 650px) {
     .nav {
       transition: all 1s ease;
@@ -1136,7 +1142,7 @@ p + .title {
       flex-direction: column; }
       .nav__logo {
         max-width: 60px; }
-      .nav__item {
+      .nav__link {
         transform: rotate(-90deg); }
       body.ready .nav {
         left: 0; }
@@ -1737,21 +1743,27 @@ p + .title {
         left: 0;
         right: 0;
         bottom: 0;
-        opacity: 0; }
+        opacity: 0;
+        background-position: right center;
+        background-size: cover;
+        background-repeat: no-repeat; }
+        .hp__pane-background.is-active {
+          background-image: none !important; }
         .hp__pane-background-image {
+          background-position: center;
+          background-repeat: no-repeat;
+          background-size: cover;
           position: absolute;
           top: 0;
           left: 0;
           right: 0;
-          bottom: 0;
-          background-position: center right;
-          background-size: cover;
-          background-repeat: no-repeat; } }
+          bottom: 0; } }
   .hp__pane-logo {
     opacity: 1;
     position: relative;
     width: 30%;
-    margin: 2.0736rem; }
+    margin: 2.0736rem;
+    overflow: visible; }
     .hp__pane-logo:before {
       content: "";
       display: block;
@@ -1761,16 +1773,21 @@ p + .title {
       .hp__pane-logo {
         opacity: 0.25;
         position: absolute;
-        top: 0;
+        top: 50%;
         left: 0;
+        transform: translateY(-50%);
         width: 100%;
         margin: 0; } }
     .hp__pane-logo .hp__pane-logo__path {
       fill: none;
       stroke: #FFFFFF;
-      stroke-width: 1;
-      stroke-miterlimit: 10;
-      animation: dash 2s linear forwards; }
+      stroke-width: 10px;
+      stroke-miterlimit: 10; }
+      @media (min-width: 800px) {
+        .hp__pane-logo .hp__pane-logo__path {
+          stroke-width: 1px; } }
+      body.animate .hp__pane-logo .hp__pane-logo__path {
+        animation: dash 3s linear forwards; }
 
 @keyframes dash {
   to {
@@ -1778,12 +1795,14 @@ p + .title {
 
 .hp__content {
   transition: all 1s ease;
-  position: absolute;
-  left: 0;
-  top: 0;
   width: 100%;
   z-index: 1;
   opacity: 0; }
+  @media (min-width: 800px) {
+    .hp__content {
+      position: absolute;
+      left: 0;
+      top: 0; } }
   .hp__content-offset {
     position: relative;
     width: 100%; }
@@ -1794,7 +1813,7 @@ p + .title {
       padding-top: 1.44rem; }
     @media (min-width: 800px) {
       .hp__content-offset:before {
-        padding-top: 22%; } }
+        padding-top: 15%; } }
   .hp__content-text {
     width: 100%; }
     @media (min-width: 800px) {
@@ -1878,9 +1897,9 @@ body.exiting .hp__content {
     left: 0;
     right: 0;
     bottom: 0;
-    background-position: center right;
-    background-size: cover;
-    background-repeat: no-repeat; }
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover; }
 
 body.ready .project {
   opacity: 1; }

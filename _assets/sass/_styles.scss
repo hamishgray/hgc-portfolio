@@ -25,13 +25,15 @@
       top: 0; left: 0;
       right: 0; bottom: 0;
       opacity: 0;
+      background-position: right center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      &.is-active { background-image: none !important; }
       &-image {
+        @include background-attributes;
         position: absolute;
         top: 0; left: 0;
         right: 0; bottom: 0;
-        background-position: center right;
-        background-size: cover;
-        background-repeat: no-repeat;
       }
     }
   }
@@ -40,6 +42,7 @@
     position: relative;
     width: 30%;
     margin: $s4;
+    overflow: visible;
     &:before {
       content: "";
       display: block;
@@ -49,7 +52,8 @@
     @include bp($xl){
       opacity: 0.25;
       position: absolute;
-      top: 0; left: 0;
+      top: 50%; left: 0;
+      transform: translateY(-50%);
       width: 100%;
       margin: 0;
     }
@@ -57,11 +61,14 @@
   	.hp__pane-logo__path {
       fill: none;
       stroke:#FFFFFF;
-      stroke-width:1;
+      stroke-width:10px;
       stroke-miterlimit:10;
-      // stroke-dasharray: 10000;
-      // stroke-dashoffset: 10000;
-      animation: dash 2s linear forwards;
+      @include bp($xl){
+        stroke-width:1px;
+      }
+      body.animate & {
+        animation: dash 3s linear forwards;
+      }
     }
     @keyframes dash {
       to {
@@ -73,11 +80,13 @@
 }
 .hp__content {
   @include transition(1s);
-  position: absolute;
-  left: 0; top: 0;
   width: 100%;
   z-index: 1;
   opacity: 0;
+  @include bp($xl){
+    position: absolute;
+    left: 0; top: 0;
+  }
 
   &-offset {
     position: relative;
@@ -89,7 +98,7 @@
       padding-top: $s2;
     }
     @include bp($xl){
-      &:before { padding-top: 22%; }
+      &:before { padding-top: 15%; }
     }
   }
 
@@ -181,9 +190,7 @@ body.exiting {
     position: absolute;
     top: 0; left: 0;
     right: 0; bottom: 0;
-    background-position: center right;
-    background-size: cover;
-    background-repeat: no-repeat;
+    @include background-attributes;
   }
 }
 

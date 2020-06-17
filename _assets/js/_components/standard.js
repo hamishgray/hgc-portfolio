@@ -1,6 +1,15 @@
+
+$(document).ready(function(){
+  setTimeout(function(){
+    $('body').addClass('animate');
+  },500);
+});
+
+
 ///////////////////////////////////////
 //      smooth-scrolling - http://css-tricks.com/snippets/jquery/smooth-scrolling/
 ///////////////////////////////////////
+
 $(function() {
   $('a[href*=\\#]:not([href=\\#])').click(function() {
     if (location.pathname.replace(/^\//,'') === this.pathname.replace(/^\//,'') && location.hostname === this.hostname) {
@@ -84,31 +93,28 @@ $('.hp__pane-logo__path').each(function(){
 //    BG image swap
 ///////////////////////////////////////
 
-
 function bgImageChange(background){
   var bgContainer = $('.js-bg-image');
   var bgImage = bgContainer.children();
-  // if not animating
-  if( bgContainer.hasClass('is-ready') ){
-    bgContainer.removeClass('is-ready');
-    bgContainer.fadeOut(1000);
-    setTimeout(function(){
-      bgImage.css({ 'background-image': 'url("' + background + '")' });
-      bgContainer.fadeIn(1000);
-      bgContainer.addClass('is-ready');
-    },1000);
-  }
+  bgContainer.fadeOut(250);
+  setTimeout(function(){
+    bgContainer.addClass('is-active');
+    bgImage.css({ 'background-image': 'url("' + background + '")' });
+    bgContainer.fadeIn(250);
+  },250);
 }
 
-
 $('.js-project-link').mouseenter(function(){
-  var background = $(this).data('bg-image');
-  bgImageChange(background);
-}).mouseleave(function(){
-  var defaultBackground = $('.js-bg-image').data('bg-image');
-  setTimeout(function(){
-    bgImageChange(defaultBackground);
-  },1000);
+  if( !$(this).hasClass('is-active') && !$(this).hasClass('is-clicked') ){
+    $('.js-project-link.is-active').removeClass('is-active');
+    $(this).addClass('is-active');
+    var background = $(this).data('bg-image');
+    bgImageChange(background);
+  }
+});
+
+$('.js-project-link').click(function(){
+  $('.js-project-link').addClass('is-clicked');
 });
 
 
