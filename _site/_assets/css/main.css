@@ -155,12 +155,12 @@ html {
       font-size: 92.5%; } }
 
 body {
-  font-family: "Merriweather", "Helvetica Neue", sans-serif;
+  font-family: "Maisonneue", "Helvetica Neue", sans-serif;
   -webkit-text-size-adjust: 100%;
   font-weight: 300;
   line-height: 1.65;
   color: #fff;
-  background-color: #859db1; }
+  background-color: #4996B2; }
 
 .theme--light {
   color: #47484a; }
@@ -1220,7 +1220,7 @@ p + .title {
   display: inline-block;
   padding: 1.44rem 2.98598rem 1.152rem;
   color: #fff;
-  background-color: #9246ff;
+  background-color: #4996B2;
   font-family: "Maisonneue", "Helvetica Neue", sans-serif;
   font-weight: 600;
   font-size: 1rem;
@@ -1238,15 +1238,15 @@ p + .title {
     padding: 1.44rem 2.98598rem 1.296rem;
     font-size: 1.2rem; }
   .btn--brand {
-    background-color: #9246ff; }
+    background-color: #4996B2; }
     .btn--brand:hover {
-      background-color: #7a00ff; }
+      background-color: #286B83; }
   .btn--white {
     background-color: #fff;
-    color: #9246ff; }
+    color: #4996B2; }
     .btn--white:hover {
       background-color: #fff;
-      color: #7a00ff; }
+      color: #286B83; }
   .btn--outline {
     color: inherit;
     background-color: transparent; }
@@ -1257,18 +1257,18 @@ p + .title {
       left: 0;
       right: 0;
       bottom: 0;
-      border: 1px solid #9246ff;
+      border: 1px solid #4996B2;
       border-radius: inherit; }
     .btn--outline:hover {
       color: #fff;
-      background-color: #9246ff; }
+      background-color: #4996B2; }
   .btn--white-outline {
     color: inherit;
     color: #fff; }
     .btn--white-outline:before {
       border: 1px solid #fff; }
     .btn--white-outline:hover {
-      color: #9246ff;
+      color: #4996B2;
       background-color: #fff; }
 
 /*========================================
