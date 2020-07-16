@@ -4,7 +4,7 @@
  *========================================*/
 
 .nav {
-  position: fixed;
+  position: relative;
   padding: $s2;
   width: 100%;
   background-color: $black;
@@ -34,6 +34,7 @@
 
   @include bp($lg){
     @include transition(1s);
+    position: fixed;
     top: 0;
     left: -100px;
     padding: $s6 0;

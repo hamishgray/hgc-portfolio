@@ -81,49 +81,6 @@ $(document).scroll(function() { scrollFade(); });
 
 
 ///////////////////////////////////////
-//    Animate logo paths
-///////////////////////////////////////
-
-var path = $('.hp__pane-logo__path');
-$('.hp__pane-logo__path').each(function(){
-  var length = this.getTotalLength();
-  $(this).css({ 'stroke-dasharray': length });
-  $(this).css({ 'stroke-dashoffset': length });
-});
-
-
-
-///////////////////////////////////////
-//    BG image swap
-///////////////////////////////////////
-
-function bgImageChange(background){
-  var bgContainer = $('.js-bg-image');
-  var bgImage = bgContainer.children();
-  bgContainer.fadeOut(250);
-  setTimeout(function(){
-    bgContainer.addClass('is-active');
-    bgImage.css({ 'background-image': 'url("' + background + '")' });
-    bgContainer.fadeIn(250);
-  },250);
-}
-
-$('.js-project-link').mouseenter(function(){
-  if( !$(this).hasClass('is-active') && !$(this).hasClass('is-clicked') ){
-    $('.js-project-link.is-active').removeClass('is-active');
-    $(this).addClass('is-active');
-    var background = $(this).data('bg-image');
-    bgImageChange(background);
-  }
-});
-
-$('.js-project-link').click(function(){
-  $('.js-project-link').addClass('is-clicked');
-});
-
-
-
-///////////////////////////////////////
 //    Page load out
 ///////////////////////////////////////
 
@@ -137,8 +94,12 @@ $('.js-exit-link').click(function(){
   },1000);
 });
 
+$('body').addClass('loading');
 $(document).ready(function(){
-  $('body').addClass('ready');
+  setTimeout(function(){
+    $(document).scrollTop('0')
+    $('body').removeClass('loading').addClass('ready');
+  },1000);
 });
 
 
@@ -466,5 +427,34 @@ $('.js-gallery-nav').on('click', function(event) {
 
 
 // general js for the project that wouldn't be a reuseable component
+
+$(document).bind('mousemove', function(e){
+  var width = $('#cursor.active').width();
+  $('#cursor.active').css({
+     left:  e.pageX-width/2,
+     top:   e.pageY-width
+  });
+});
+
+$('.js-cursor').hover(
+  function() {
+    var type = $(this).data('cursor-type');
+    $('#cursor').addClass('active');
+    $('#cursor').addClass('cursor--' + type);
+  }, function() {
+    $('#cursor').removeClass();
+  }
+);
+
+
+// Glow moving right to left
+$(document).scroll(function() {
+  var wh = $(window).height();
+  var dh = $(document).height();
+  var scrolled = $(document).scrollTop() / (dh-wh)*100;
+  var glow = $('.background__glow');
+  glow.css('right',scrolled-50 + "%");
+});
+
 
 });})(jQuery, this); // on ready end

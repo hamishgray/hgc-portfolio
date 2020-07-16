@@ -3,121 +3,207 @@ layout: default
 id: home
 title: Home
 theme: dark
+
+experience:
+
+  - year: 2020
+    position: Lead Designer
+    employer: Secret Escapes
+    location: London, UK
+
+  - year: 2013
+    position: Digital Design Lead
+    employer: Gravity Bureau
+    location: Auckland, NZ
+
+  - year: 2011
+    position: Motion Graphics Artist
+    employer: 90 Seconds
+    location: Freelance
+
+  - year: 2009
+    position: Graphic Designer
+    employer: Yellow Design
+    location: Timaru, NZ
+
+awards:
+
+  - year: 2019
+    award: "International Content Marketing Award"
+    detail: "Best Partnership"
+    project: "Nikon: Home"
+
+  - year: 2015
+    award: "CSS Design Awards"
+    detail: "Site of the Day"
+    project: Line 7 Frontier
+
 ---
 
 
-<!-- Left logo & image pane -->
-<div class="hp__pane">
-  <div class="hp__pane-background js-bg-image" style="background-image: url({{site.background-image}});">
-    <div class="hp__pane-background-image" style="background-image: url();"></div>
-  </div>
-  {% include components/logo.html %}
-</div>
 
+<div class="container container--xxxxl js-load">
 
-<!-- Right content pane -->
-<div class="hp__content text--light">
-
-  <!-- Align text to logo -->
-  <div class="hp__content-offset"></div>
-
-  <!-- Intro -->
-  <div class="hp__content-text">
-    <div class="hpad--xxl">
-
-      <h1 class="h h--md h--subtitle">Hamish Gray</h1>
-      <div class="h h--xxs">Digital designer, front-end developer</div>
-      <hr class="hr--left">
-      <p class="p--xl">Hi there!</p>
-      <p class="p--xl">Welcome to my little corner of the internet. I've been working in the field of design since 2009 with experience wide ranging experience from print and branding, to video editing and web development. My passion truly lies in developing brand systems that span all formats and create a joyful experience for people to discover.</p>
-      <p class="p--xl">Stay a while and explore my work, and please feel free to drop me a line. </p>
-      <div class="space--lg"></div>
-      <a class="btn btn--outline btn--white-outline" href="mailto:hamishjgray@gmail.com">Get in touch</a>
-      <div class="space--xxxl"></div>
-
+  <div class="banner">
+    <h1 class="h h--xxxxl text--upper text--700">Hamish<br />Gray</h1>
+    <div class="h h--xxs">Lead designer, front-end developer</div>
+    <hr class="hr--left">
+    <div class="banner__text">
+      2010 → 2020. <br />
+      <a class="banner__text-link js-cursor" data-cursor-type="anchor" href="#about">Ten years</a> of
+      <a class="banner__text-link js-cursor" data-cursor-type="anchor" href="#branding">logos</a>,
+      <a class="banner__text-link js-cursor" data-cursor-type="anchor" href="#photoshop">photos</a> &
+      <a class="banner__text-link js-cursor" data-cursor-type="anchor" href="#web">interfaces</a>. <br />
+      <a class="banner__text-link js-cursor" data-cursor-type="anchor" href="#packaging">Designing</a>,
+      <a class="banner__text-link js-cursor" data-cursor-type="anchor" href="#print">printing</a> &
+      <a class="banner__text-link js-cursor" data-cursor-type="anchor" href="#development">coding</a>. <br />
+      <a class="banner__text-link js-cursor" data-cursor-type="external" href="https://www.instagram.com/hamish.gray.art/" target="_blank">Creating</a>,
+      <a class="banner__text-link js-cursor" data-cursor-type="external" href="https://www.instagram.com/hamishjgray/" target="_blank">travelling</a> &
+      living. <br />
+      Nice to finally
+      <a class="banner__text-link js-cursor" data-cursor-type="contact" href="mailto:hamishjgray@gmail.com">meet you</a>.
     </div>
   </div>
+  <div class="space--xxl"></div>
 
-  <!-- Work -->
-  <div class="hp__content-work">
-    <div class="container">
-      <div class="row row--left">
+
+
+  <div class="row js-load">
+    <div class="col col--8">
+      <div id="about"></div>
+      <p class="p--lg">Welcome to my little corner of the internet. As a life-long creator, I’ve been lucky to turn the thing I love into the thing that fills my fridge and pays the bills! </p>
+      <p class="p--lg">I’ve been very fortunate to have worked with a wide range of clients big and small, across industries and countries. Throughout these experiences I’ve developed a broad skill-set and an appreciation for top quality, concept-driven design. Fundamentally my passion lies in collaborating with interesting people and teams to create joyful and innovative design solutions.</p>
+    </div>
+  </div>
+  <div class="space--xxl"></div>
+
+
+
+  <div class="row js-load">
+    <div class="col col--1">
+      <div class="section-title"><div class="section-title__text">Experience</div></div>
+    </div>
+    <div class="col col--10">
+      {% for experience in page.experience %}
+      <div class="lined-list">
+      <div class="row row--no-gutters">
+        <div class="col col--2">{{experience.year}}</div>
+        <div class="col col--4 text--700">{{experience.position}}</div>
+        <div class="col col--3">{{experience.employer}}</div>
+        <div class="col col--3">{{experience.location}}</div>
+      </div>
+      </div>
+      {% endfor %}
+    </div>
+    <div class="col col--1"></div>
+  </div>
+  <div class="space--xxl"></div>
+
+
+
+  <div class="row row--no-gutters js-load">
+    <div class="col col--1">
+      <div class="section-title"><div class="section-title__text">Awards</div></div>
+    </div>
+    <div class="col col--10">
+      {% for award in page.awards %}
+      <div class="lined-list">
+      <div class="row row--no-gutters">
+        <div class="col col--2">{{award.year}}</div>
+        <div class="col col--4 text--700">{{award.award}}</div>
+        <div class="col col--3">{{award.project}}</div>
+        <div class="col col--3">{{award.employer}}</div>
+      </div>
+      </div>
+      {% endfor %}
+    </div>
+    <div class="col col--1"></div>
+  </div>
+  <div class="space--xxl"></div>
+
+
+
+  <div class="row row--no-gutters js-load">
+    <div class="col col--1">
+      <div class="section-title"><div class="section-title__text">Case studies</div></div>
+    </div>
+    <div class="col col--10">
+      {% assign projects = strapi.collections.projects | sort: 'created_at' | reverse %}
+      {% for project in projects %}
+      {% if project.case_study_type %}
+      <div class="row row--no-gutters case-study" id="{{project.case_study_type}}">
+        <div class="col col--5 case-study__content">
+          <div class="p--lg text--upper text--wide">{{project.case_study_type}} case study</div>
+          <div class="space--xxs"></div>
+          <h4 class="h h--xxl text--700 text--outline">{{project.page.title}}</h4>
+          <div class="space--sm"></div>
+          <p>{{project.page.excerpt}}</p>
+        </div>
+        <div class="col col--1"></div>
+        <div class="col col--constant-10 col--lg-5">
+          <div class="img img--1-1 js-cursor" data-cursor-type="view" style="background-image: url({{project.page.thumbnail.url}});">
+            <a href="{{ project.url | relative_url }}" class="img__link js-exit-link"></a>
+          </div>
+        </div>
+        <div class="col col--constant-2 col--lg-1">
+          <a href="{{project.url | relative_url}}" class="case-study__logo js-cursor js-exit-link" data-cursor-type="view" style="background-image: url({{project.client_logo.url}})"></a>
+          <a href="{{project.url | relative_url}}" class="case-study__arrow js-cursor js-exit-link" data-cursor-type="view"></a>
+        </div>
+      </div>
+      {% endif %}
+      {% endfor %}
+    </div>
+    <div class="col col--1"></div>
+  </div>
+  <div class="space--xxl"></div>
+
+
+
+  <div class="row js-load">
+    <div class="col col--1">
+      <div class="section-title"><div class="section-title__text">Other projects</div></div>
+    </div>
+    <div class="col col--11">
+      <div class="row">
+
         {% assign projects = strapi.collections.projects | sort: 'created_at' | reverse %}
         {% for project in projects %}
-        <div class="col col--12 col--xxxl-6">
-          <div class="hp__project js-project-link" data-bg-image="{{project.page.hero.url}}">
-            <a href="{{ project.url | relative_url }}" class="hp__project__link js-exit-link"></a>
-            <div class="img img--1-1" style="background-image: url({{project.page.thumbnail.url}});"></div>
-            <div class="space--md"></div>
+        {% unless project.case_study_type %}
+        <div class="col col--3">
+          <div class="img img--1-1 js-cursor" data-cursor-type="view" style="background-image: url({{project.page.thumbnail.url}});">
+            <a href="{{ project.url | relative_url }}" class="img__link js-exit-link"></a>
+          </div>
+
+          <div class="vpad--lg">
             <div class="h h--xxs text--600">{{project.page.title}}</div>
-            <div class="h p--md">
+            <div>
             {% for detail in project.detail %}
-              <span class="separator">—</span> {{detail.content}}{% unless forloop.last %}<br />{% endunless%}
+              {{detail.content}}{% unless forloop.last %}<br />{% endunless%}
             {% endfor %}
             </div>
           </div>
-          <div class="space--xxl"></div>
+
         </div>
+        {% endunless %}
         {% endfor %}
+
       </div>
     </div>
   </div>
-  <!-- Clients & contact -->
-  <div class="hp__content-text">
-    <div class="hpad--xxl">
-      <hr class="hr--left">
-      <div class="row row--left">
-        <div class="col col--12">
-          <h3 class="h h--md text--600 text--upper">Clients</h3>
-          <div class="space--sm"></div>
-        </div>
-        <div class="col col--4 p--lg">
-          Secret Escapes
-          <div class="space--sm"></div>
-        </div>
-        <div class="col col--4 p--lg">
-          Lexus
-          <div class="space--sm"></div>
-        </div>
-        <div class="col col--4 p--lg">
-          Nando's
-          <div class="space--sm"></div>
-        </div>
-        <div class="col col--4 p--lg">
-          Nikon
-          <div class="space--sm"></div>
-        </div>
-        <div class="col col--4 p--lg">
-          Belmoto
-          <div class="space--sm"></div>
-        </div>
-        <div class="col col--4 p--lg">
-          British Airways
-          <div class="space--sm"></div>
-        </div>
-        <div class="col col--4 p--lg">
-          Italy Tourism
-          <div class="space--sm"></div>
-        </div>
-        <div class="col col--4 p--lg">
-          Pandora
-          <div class="space--sm"></div>
-        </div>
-        <div class="col col--4 p--lg">
-          Line 7
-          <div class="space--sm"></div>
-        </div>
-      </div>
-      <hr class="hr--left">
-      <div class="row row--left">
-        <div class="col col--12">
-          <h3 class="h h--md text--600 text--upper">Let's talk</h3>
-          <div class="space--sm"></div>
-          <p class="p--lg">That's all for now. In the meantime, please do <a href="mailto:hamishjgray@gmail.com">get in touch</a></p>
-          <p class="p--lg">Thanks, Hamish</p>
-          <div class="space--xxxl"></div>
-        </div>
-      </div>
+  <div class="space--xxl"></div>
+
+
+
+
+  <div class="row js-load">
+    <div class="col col--1">
+      <div class="section-title"><div class="section-title__text">Get in touch</div></div>
+    </div>
+    <div class="col col--11">
+      <h3 class="h h--lg text--700">Thanks for browsing!</h3>
+      <div class="space--sm"></div>
+      <p class="p--xl">That's all for now. If you like something you saw, please do drop me a line at <a href="mailto:hamishjgray@gmail.com">hamishjgray@gmail.com</a></p>
+      <div class="space--xxxl"></div>
     </div>
   </div>
 </div>

@@ -1,17 +1,10 @@
 
-<div class="space--xxl"></div>
-
 <footer class="footer">
   <div class="footer__wrap">
-    <div>
-      {% if page.document.page.theme == 'dark' or page.theme == 'dark' %}
-        {% assign logo = site.logo %}
-      {% else %}
-        {% assign logo = site.logo-dark %}
-      {% endif %}
-      <a href="/" class="js-exit-link footer__logo" >
-        <img src="{{logo}}" alt="HGC logo">
-      </a>
-    </div>
+    <a href="/" class="js-exit-link footer__logo"><img src="{{site.logo}}" alt="HGC logo"></a>
+    <div class="space--md"></div>
+    <div class="h h--xl text--700 text--upper">Hamish Gray</div>
+    <div class="space--xs"></div>
+    <div class="h h--xxs">Lead designer, front-end developer</div>
   </div>
 </footer>

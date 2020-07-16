@@ -12,6 +12,12 @@
   &--grey-dark     { background-color: $grey-dark; }
   &--grey-darker   { background-color: $grey-darker; }
   &--grey-darkest  { background-color: $grey-darkest; }
+
+  &--brand         { background-color: $brand; }
+  &--brand-light   { background-color: $brand-light; }
+  &--brand-dark    { background-color: $brand-dark; }
+  &--brand-pink    { background-color: $brand-pink; }
+
   &--img           { @include background-attributes; }
   &--img-fixed {
     position: fixed;

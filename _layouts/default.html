@@ -3,11 +3,34 @@
 
   {% include page/head.html %}
 
-  <body>
+  <body class="loading">
 
     {% include components/tracking.html %}
 
     {{ content }}
+
+    {% include page/footer.html %}
+
+    <div class="background">
+      <div class="background__grid">
+        <div class="background__grid-l"></div>
+        <div class="background__grid-l"></div>
+        <div class="background__grid-space"></div>
+        <div class="background__grid-space"></div>
+        <div class="background__grid-space"></div>
+        <div class="background__grid-space"></div>
+        <div class="background__grid-l"></div>
+        <div class="background__grid-space"></div>
+        <div class="background__grid-space"></div>
+        <div class="background__grid-space"></div>
+        <div class="background__grid-space"></div>
+        <div class="background__grid-l"></div>
+      </div>
+
+      <div class="background__logo"></div>
+      <div class="background__glow"></div>
+    </div>
+    <div id="cursor"></div>
 
   </body>
 

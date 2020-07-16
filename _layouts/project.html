@@ -5,14 +5,12 @@ layout: default
 {% include page/nav.html %}
 
 
-<div class="project__bg" style="background-color: #{{page.document.page.colour}};">
-  <div class="project__bg__image js-fade" style="background-image: url({{page.document.page.hero.url}});"></div>
-</div>
 
-<div class="project theme--{{page.document.page.theme}}">
+<div class="project">
 
 
-  <div class="project__banner">
+  <div class="project__banner js-load">
+    <div class="space--xxxxl"></div>
     <div class="container container--xxl">
       {% if page.document.banner.subtitle %}
         <div class="h h--md h--subtitle vpad--xs">{{page.document.banner.subtitle}}</div>
@@ -24,40 +22,37 @@ layout: default
           {{page.document.page.title}}
         {% endif %}
       </h1>
-      <div class="space--xxl"></div>
+      <div class="space--lg"></div>
+      <div class="row">
+        {% assign details = page.document.detail%}
+        {% for detail in details %}
+          <div class="col col--{{ 12 | divided_by: details.size }}">
+            <span class="text--700 text--upper text--wide">{{detail.name}}</span><br />
+            <span class="p--xl">{{detail.content}}</span>
+            <hr>
+          </div>
+        {% endfor %}
+      </div>
     </div>
   </div>
 
 
 
-  <div class="container container--xxl">
-    <div class="row row--gutters-sm">
-      {% assign details = page.document.detail%}
-      {% for detail in details %}
-        <div class="col col--{{ 12 | divided_by: details.size }}">
-          <span class="h text--600 text--upper">{{detail.name}}</span><br />
-          <span class="p">{{detail.content}}</span>
-          <hr>
-        </div>
-      {% endfor %}
-    </div>
+  <div class="js-load">
+    {% for section in page.document.sections %}
+      {% if section.__component == 'global.text-block' %}
+        {% include project/content.html %}
+      {% elsif section.__component == 'global.image-block' %}
+        {% include project/image.html %}
+      {% elsif section.__component == 'global.image-gallery-block' %}
+        {% include project/image-gallery.html %}
+      {% elsif section.__component == 'global.image-wide-block' %}
+        {% include project/image-fullwidth.html %}
+      {% elsif section.__component == 'global.video-block' %}
+        {% include project/video.html %}
+      {% endif %}
+    {% endfor %}
   </div>
-
-
-
-  {% for section in page.document.sections %}
-    {% if section.__component == 'global.text-block' %}
-      {% include project/content.html %}
-    {% elsif section.__component == 'global.image-block' %}
-      {% include project/image.html %}
-    {% elsif section.__component == 'global.image-gallery-block' %}
-      {% include project/image-gallery.html %}
-    {% elsif section.__component == 'global.image-wide-block' %}
-      {% include project/image-fullwidth.html %}
-    {% elsif section.__component == 'global.video-block' %}
-      {% include project/video.html %}
-    {% endif %}
-  {% endfor %}
 
 
 

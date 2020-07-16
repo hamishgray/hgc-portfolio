@@ -23,16 +23,15 @@
 
 <div class="container vpad--xl">
 
-  <div class="project__image">
-    {% if ratio %}
-      <div class="img img--{{ratio}}" style="background-image: url({{section.file.url}});"></div>
-    {% else %}
-      <img src="{{section.file.url}}">
-    {% endif %}
-    {% if section.caption %}
-      <div class="project__caption">{{section.caption}}</div>
-    {% endif %}
-  </div>
+  {% if ratio %}
+    <div class="img img--{{ratio}}" style="background-image: url({{section.file.url}});"></div>
+  {% else %}
+    <img src="{{section.file.url}}">
+  {% endif %}
+
+  {% if section.caption %}
+    <div class="project__caption">{{section.caption}}</div>
+  {% endif %}
 
 </div>
 {% assign ratio = %}

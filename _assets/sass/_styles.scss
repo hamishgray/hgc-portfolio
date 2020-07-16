@@ -1,209 +1,142 @@
 
 
-/*=============================
-* HOME PAGE
-*/
 
+/* GLOBAL
+==================================================*/
 
-.hp__pane {
-  @include transition(1s);
-  position: relative;
-  z-index: 0; width: 100%;
+.js-load {
+  @include transition;
+  margin-top: 0; opacity: 1;
+  .loading & { opacity: 0; margin-top: $s2; }
+  .exiting & { opacity: 0; margin-top: $s2; }
+}
+
+#cursor {
+  position: absolute;
   opacity: 0;
-  @include bp($xl){
-    position: fixed;
-    top: 0; left: 0; bottom: 0;
-    height: 100%;
-    width: 50%;
-    border-right: 1px solid rgba($white,0.2);
+  &.active {
+    opacity: 1;
+    mix-blend-mode: difference;
+    position: absolute;
+    height: 30px; width: 30px;
+    pointer-events: none;
+    @include background-attributes;
+    background-image: url("../img/link-anchor.svg");
+    &.cursor--external { background-image: url("../img/link-external.svg"); }
+    &.cursor--contact  { background-image: url("../img/link-contact.svg"); }
+    &.cursor--view     { background-image: url("../img/link-view.svg"); }
   }
-  &-background {
-    display: none;
-    @include bp($xl){
-      display: block;
-      position: absolute;
-      top: 0; left: 0;
-      right: 0; bottom: 0;
-      opacity: 0;
-      background-position: right center;
-      background-size: cover;
-      background-repeat: no-repeat;
-      &.is-active { background-image: none !important; }
-      &-image {
-        @include background-attributes;
-        position: absolute;
-        top: 0; left: 0;
-        right: 0; bottom: 0;
+}
+
+
+
+/* HOME PAGE
+==================================================*/
+
+
+.banner {
+  padding-top: $s10;
+  &__text {
+    font-size: $s5;
+    font-weight: 700;
+    line-height: 1.1;
+    color: $white !important;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: $white;
+    &-link {
+      color: $white !important;
+      -webkit-text-fill-color: $white;
+      -webkit-text-stroke-color: $white;
+      &:hover {
+        color: $brand-pink !important;
+        -webkit-text-fill-color: $brand-pink;
+        -webkit-text-stroke-color: $brand-pink;
       }
     }
+    @include bp($xl){
+      font-size: $s8;
+    }
   }
-  &-logo {
-    opacity: 1;
-    position: relative;
-    width: 30%;
-    margin: $s4;
-    overflow: visible;
+}
+
+.lined-list {
+  padding-top: $s2;
+  padding-bottom: $s2;
+  border-top: 1px solid rgba($white,0.15);
+}
+
+.section-title {
+  display: block;
+  float: left;
+  position: relative;
+  width: 100%;
+  &__text {
+    font-size: $s3;
+    font-weight: 700;
+    padding-bottom: $s0;
+    @include bp($lg){
+      font-family: $font-mono;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      font-size: $s1;
+      position: absolute;
+      top: 0; right: 100%;
+      transform: rotate(-90deg);
+      transform-origin: top right;
+      white-space: nowrap;
+    }
+  }
+}
+
+.case-study {
+  & + & { padding-top: $s8; }
+  &__content { padding-bottom: $s0; }
+  &__logo,
+  &__arrow {
+    display: block;
     &:before {
       content: "";
-      display: block;
       width: 100%;
       padding-top: 100%;
-    }
-    @include bp($xl){
-      opacity: 0.25;
-      position: absolute;
-      top: 50%; left: 0;
-      transform: translateY(-50%);
-      width: 100%;
-      margin: 0;
-    }
-    // SVG lines
-  	.hp__pane-logo__path {
-      fill: none;
-      stroke:#FFFFFF;
-      stroke-width:10px;
-      stroke-miterlimit:10;
-      @include bp($xl){
-        stroke-width:1px;
-      }
-      body.animate & {
-        animation: dash 3s linear forwards;
-      }
-    }
-    @keyframes dash {
-      to {
-        stroke-dashoffset: 0;
-      }
-    }
-
-  }
-}
-.hp__content {
-  @include transition(1s);
-  width: 100%;
-  z-index: 1;
-  opacity: 0;
-  @include bp($xl){
-    position: absolute;
-    left: 0; top: 0;
-  }
-
-  &-offset {
-    position: relative;
-    width: 100%;
-    &:before {
-      content: "";
       display: block;
-      width: 100%;
-      padding-top: $s2;
-    }
-    @include bp($xl){
-      &:before { padding-top: 15%; }
     }
   }
-
-  &-text {
-    width: 100%;
-    @include bp($xl){
-      padding-left: 50%;
-    }
+  &__logo {
+    @include background-attributes;
   }
-
-  &-work {
-    width: 100%;
-    @include bp($xl){
-      padding-left: 40%;
-    }
-  }
-}
-.hp__project {
-  position: relative;
-  @include transition;
-  &__link {
-    position: absolute;
-    left: 0; top: 0;
-    right: 0; bottom: 0;
-    z-index: 10;
-  }
-  &:hover {
-    padding: 10px;
+  &__arrow {
+    background-color: $brand-pink;
+    background-image: url("../img/arrow-right.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 50%;
   }
 }
 
 
-body.ready {
-  .hp__pane {
-    opacity: 1;
-    &-background { opacity: 0.2; }
-  }
-  .hp__content { opacity: 1; }
-}
 
-body.exiting {
-  .hp__pane {
-    width: 100%;
-    &-logo { opacity: 0; }
-    &-background { opacity: 1 !important; }
-  }
-  .hp__content { left: 100%; }
-}
-
-
-
-/*=============================
-* PROJECT PAGE
-*/
+/* PROJECT PAGE
+==================================================*/
 
 .project {
-  @include transition(1s);
-  opacity: 0;
-  position: relative;
-  padding-top: 65vh;
-  @include bp($xl){
-    padding-left: 100px;
+  &__caption {
+    padding: $s0 0;
+    border-bottom: 1px solid rgba($white,0.15);
   }
   &__video {
-    width: 100%;
     position: relative;
     &:before {
-      content: "";
+      content: '';
       display: block;
       width: 100%;
       padding-top: 56.25%;
     }
-    &__embed,
     & iframe {
       position: absolute;
-      top: 0; bottom: 0;
-      left: 0; right: 0;
+      top: 0; left: 0;
+      bottom: 0; right: 0;
     }
-  }
-}
-
-.project__bg {
-  @include transition(1s);
-  position: fixed;
-  top: 0; left: 0;
-  bottom: 0; right: 0;
-  z-index: $z-background;
-  &__image {
-    position: absolute;
-    top: 0; left: 0;
-    right: 0; bottom: 0;
-    @include background-attributes;
-  }
-}
-
-body.ready {
-  .project {
-    opacity: 1;
-  }
-}
-
-body.exiting {
-  .project__bg,
-  .project {
-    opacity: 0;
   }
 }
 

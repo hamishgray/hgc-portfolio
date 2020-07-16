@@ -1,15 +1,11 @@
 
 
-<div class="container vpad--xxl">
-  <div class="row">
-    <div class="container--xxl">
-        {% if section.title %}
-          <div class="h {% if section.title_style %} h--{{section.title_style}} {% else %} h--lg {% endif %} text--600">{{section.title}}</div>
-          <div class="space--sm"></div>
-        {% endif %}
-        <div class="{% if section.paragraph_style %}p--{{section.paragraph_style}}{% else %}p--lg{% endif %}">
-          {{section.content | markdownify}}
-        </div>
-    </div>
+<div class="container container--xxl vpad--xxl">
+  {% if section.title %}
+    <div class="h {% if section.title_style %} h--{{section.title_style}} {% else %} h--lg {% endif %} text--600">{{section.title}}</div>
+    <div class="space--sm"></div>
+  {% endif %}
+  <div class="{% if section.paragraph_style %}p--{{section.paragraph_style}}{% else %}p--lg{% endif %}">
+    {{section.content | markdownify}}
   </div>
 </div>
