@@ -36,7 +36,7 @@
     @include transition(1s);
     position: fixed;
     top: 0;
-    left: -100px;
+    left: 0;
     padding: $s6 0;
     width: 100px;
     height: 100%;
@@ -47,8 +47,8 @@
     &__link {
       transform: rotate(-90deg);
     }
-    body.ready & {
-      left: 0;
+    body.loading & {
+      left: -100px;
     }
     body.exiting & {
       left: -100px;

@@ -7,7 +7,7 @@ theme: dark
 experience:
 
   - year: 2020
-    position: Lead Designer
+    position: Lead Designer of Marketing & Media
     employer: Secret Escapes
     location: London, UK
 
@@ -21,7 +21,7 @@ experience:
     employer: 90 Seconds
     location: Freelance
 
-  - year: 2009
+  - year: 2010
     position: Graphic Designer
     employer: Yellow Design
     location: Timaru, NZ
@@ -45,7 +45,7 @@ awards:
 <div class="container container--xxxxl js-load">
 
   <div class="banner">
-    <h1 class="h h--xxxxl text--upper text--700">Hamish<br />Gray</h1>
+    <h1 class="h h--banner text--upper text--700">Hamish<br />Gray</h1>
     <div class="h h--xxs">Lead designer, front-end developer</div>
     <hr class="hr--left">
     <div class="banner__text">
@@ -53,13 +53,12 @@ awards:
       <a class="banner__text-link js-cursor" data-cursor-type="anchor" href="#about">Ten years</a> of
       <a class="banner__text-link js-cursor" data-cursor-type="anchor" href="#branding">logos</a>,
       <a class="banner__text-link js-cursor" data-cursor-type="anchor" href="#photoshop">photos</a> &
-      <a class="banner__text-link js-cursor" data-cursor-type="anchor" href="#web">interfaces</a>. <br />
+      <a class="banner__text-link js-cursor" data-cursor-type="anchor" href="#digital">interfaces</a>. <br />
       <a class="banner__text-link js-cursor" data-cursor-type="anchor" href="#packaging">Designing</a>,
       <a class="banner__text-link js-cursor" data-cursor-type="anchor" href="#print">printing</a> &
       <a class="banner__text-link js-cursor" data-cursor-type="anchor" href="#development">coding</a>. <br />
       <a class="banner__text-link js-cursor" data-cursor-type="external" href="https://www.instagram.com/hamish.gray.art/" target="_blank">Creating</a>,
-      <a class="banner__text-link js-cursor" data-cursor-type="external" href="https://www.instagram.com/hamishjgray/" target="_blank">travelling</a> &
-      living. <br />
+      <a class="banner__text-link js-cursor" data-cursor-type="external" href="https://www.instagram.com/hamishjgray/" target="_blank">travelling & living</a>.<br />
       Nice to finally
       <a class="banner__text-link js-cursor" data-cursor-type="contact" href="mailto:hamishjgray@gmail.com">meet you</a>.
     </div>
@@ -68,12 +67,9 @@ awards:
 
 
 
-  <div class="row js-load">
-    <div class="col col--8">
-      <div id="about"></div>
-      <p class="p--lg">Welcome to my little corner of the internet. As a life-long creator, I’ve been lucky to turn the thing I love into the thing that fills my fridge and pays the bills! </p>
-      <p class="p--lg">I’ve been very fortunate to have worked with a wide range of clients big and small, across industries and countries. Throughout these experiences I’ve developed a broad skill-set and an appreciation for top quality, concept-driven design. Fundamentally my passion lies in collaborating with interesting people and teams to create joyful and innovative design solutions.</p>
-    </div>
+  <div id="about" class="js-load">
+    <p class="p--lg">Welcome to my little corner of the internet. As a life-long creator, I’ve been lucky to turn the thing I love into the thing that fills my fridge and pays the bills! </p>
+    <p class="p--lg">I’ve been very fortunate to have worked with a wide range of clients big and small, across industries and countries. Throughout these experiences I’ve developed a broad skill-set and an appreciation for top quality, concept-driven design. Fundamentally my passion lies in collaborating with interesting people and teams to create joyful and innovative design solutions.</p>
   </div>
   <div class="space--xxl"></div>
 
@@ -85,10 +81,10 @@ awards:
     </div>
     <div class="col col--10">
       {% for experience in page.experience %}
-      <div class="lined-list">
+      <div class="lined-list p--lg">
       <div class="row row--no-gutters">
-        <div class="col col--2">{{experience.year}}</div>
-        <div class="col col--4 text--700">{{experience.position}}</div>
+        <div class="col col--1">{{experience.year}}</div>
+        <div class="col col--5 text--700">{{experience.position}}</div>
         <div class="col col--3">{{experience.employer}}</div>
         <div class="col col--3">{{experience.location}}</div>
       </div>
@@ -107,12 +103,12 @@ awards:
     </div>
     <div class="col col--10">
       {% for award in page.awards %}
-      <div class="lined-list">
+      <div class="lined-list p--lg">
       <div class="row row--no-gutters">
-        <div class="col col--2">{{award.year}}</div>
-        <div class="col col--4 text--700">{{award.award}}</div>
+        <div class="col col--1">{{award.year}}</div>
+        <div class="col col--5 text--700">{{award.award}}</div>
+        <div class="col col--3">{{award.detail}}</div>
         <div class="col col--3">{{award.project}}</div>
-        <div class="col col--3">{{award.employer}}</div>
       </div>
       </div>
       {% endfor %}
@@ -202,7 +198,7 @@ awards:
     <div class="col col--11">
       <h3 class="h h--lg text--700">Thanks for browsing!</h3>
       <div class="space--sm"></div>
-      <p class="p--xl">That's all for now. If you like something you saw, please do drop me a line at <a href="mailto:hamishjgray@gmail.com">hamishjgray@gmail.com</a></p>
+      <p class="p--xl">If you saw something you like, please do drop me a line at <a href="mailto:hamishjgray@gmail.com">hamishjgray@gmail.com</a></p>
       <div class="space--xxxl"></div>
     </div>
   </div>

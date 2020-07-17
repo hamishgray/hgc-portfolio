@@ -1,10 +1,4 @@
 
-$(document).ready(function(){
-  setTimeout(function(){
-    $('body').addClass('animate');
-  },500);
-});
-
 
 ///////////////////////////////////////
 //      smooth-scrolling - http://css-tricks.com/snippets/jquery/smooth-scrolling/
@@ -50,50 +44,3 @@ function queryString(sParam){
     }
   }
 }
-
-
-///////////////////////////////////////
-//    Scroll fade
-///////////////////////////////////////
-
-function scrollFade(){
-  var st = $(document).scrollTop()*1.8;
-  var wh = $(window).height();
-  var opac = ((wh - st) / wh);
-  if(opac>0.2){
-    $('.js-fade').css({
-    	"opacity": opac
-    });
-  }else{
-    $('.js-fade').css({
-      "opacity": "0.2"
-    });
-  }
-}
-
-$(document).ready(function() { scrollFade(); });
-$(document).scroll(function() { scrollFade(); });
-
-
-
-///////////////////////////////////////
-//    Page load out
-///////////////////////////////////////
-
-$('.js-exit-link').click(function(){
-  event.preventDefault();
-
-  var url = $(this).attr('href');
-  $('body').addClass('exiting');
-  setTimeout(function(){
-    document.location.href = url;
-  },1000);
-});
-
-$('body').addClass('loading');
-$(document).ready(function(){
-  setTimeout(function(){
-    $(document).scrollTop('0')
-    $('body').removeClass('loading').addClass('ready');
-  },1000);
-});

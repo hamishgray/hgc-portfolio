@@ -120,6 +120,15 @@
 ==================================================*/
 
 .project {
+  // &__body {
+  //   margin-left: 100px; opacity: 1;
+  //   .loading,.exiting{ margin-left: 0; opacity: 0; }
+  // }
+  &__banner {
+    padding-top: $s14;
+    padding-bottom: $s6;
+    @include background-attributes;
+  }
   &__caption {
     padding: $s0 0;
     border-bottom: 1px solid rgba($white,0.15);

@@ -6,16 +6,15 @@ layout: default
 
 
 
-<div class="project">
+<div class="project__body">
 
 
   <div class="project__banner js-load">
-    <div class="space--xxxxl"></div>
     <div class="container container--xxl">
       {% if page.document.banner.subtitle %}
         <div class="h h--md h--subtitle vpad--xs">{{page.document.banner.subtitle}}</div>
       {% endif %}
-      <h1 class="h h--banner">
+      <h1 class="h h--banner text--outline">
         {% if page.document.banner.title %}
           {{page.document.banner.title}}
         {% else %}

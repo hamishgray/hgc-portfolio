@@ -235,7 +235,6 @@ var compress = gulp.parallel(
   cleanSass,
   compressSass,
   compressJs,
-  compressImages,
   compressHtml
 );
 

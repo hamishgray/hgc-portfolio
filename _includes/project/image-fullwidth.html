@@ -19,11 +19,15 @@
   {% assign ratio = "21-9" %}
 {% elsif section.ratio == 'ratio_3_1' %}
   {% assign ratio = "3-1" %}
-{% else %}
-  {% assign ratio = "16-9" %}
 {% endif %}
 
 <div>
-  <div class="img img--4-3 img--xxl-{{ratio}}" style="background-image: url({{section.file.url}});"></div>
+
+  {% if ratio %}
+    <div class="img img--4-3 img--xxl-{{ratio}}" style="background-image: url({{section.file.url}});"></div>
+  {% else %}
+    <img src="{{section.file.url}}">
+  {% endif %}
+
 </div>
 {% assign ratio = %}

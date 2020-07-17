@@ -4,6 +4,12 @@
  *  [general modifier styles for text]
  *========================================*/
 
+p {
+  max-width: $xl;
+  .text--center &,
+  &.text--center { margin-left: auto; margin-right: auto; }
+}
+
 .p {
   font-weight: 300;
   &--xxxxl  { font-size: $s1; }

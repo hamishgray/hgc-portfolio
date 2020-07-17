@@ -1,7 +1,7 @@
 
 {% assign slides = section.image %}
 <div class="container vpad--xl">
-  <div class="gallery" id="gallery__{{page.document.slug}}-{{section.id}}">
+  <div class="gallery rounded--lg" id="gallery__{{page.document.slug}}-{{section.id}}">
     {% for slide in slides %}
 
       {% if slide.ratio == 'ratio_1_2' %}

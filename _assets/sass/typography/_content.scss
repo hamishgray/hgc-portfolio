@@ -4,6 +4,26 @@
  *  Typography HTML elements and helpers
  *========================================*/
 
+
+// colours
+.theme {
+  &--dark {
+    color: $white;
+    .h { color: $white; }
+  }
+  &--light,
+  &--default {
+    color: $grey-dark;
+    .h { color: $grey-darkest; }
+    .text--outline {
+      color: $grey-darkest;
+      -webkit-text-fill-color: transparent;
+      -webkit-text-stroke-width: 1px;
+      -webkit-text-stroke-color: $grey-darkest;
+    }
+  }
+}
+
 .text {
 
   // colours
