@@ -111,6 +111,12 @@ function buildJs(cb) {
   }));
 }
 
+// move fonts
+function buildFonts() {
+  return gulp.src('./_assets/fonts/**')
+  .pipe(gulp.dest('./_site/_assets/fonts'));
+}
+
 
 
 /////////////////////////////////////////////////////////////////////////  watch
@@ -118,6 +124,7 @@ function buildJs(cb) {
 // Watch files
 function watchFiles() {
   gulp.watch('./_assets/sass/**/*.scss', buildSass);
+  gulp.watch('./_assets/fonts/**', buildFonts);
   gulp.watch('./_assets/js/**/*.js', gulp.parallel(buildJsMain, buildJs));
   gulp.watch( // watch for jekyll
     [
@@ -202,7 +209,8 @@ var build = gulp.series(
     buildSass,
     buildImages,
     buildJsMain,
-    buildJs
+    buildJs,
+    buildFonts
   )
 );
 var compress = gulp.parallel(

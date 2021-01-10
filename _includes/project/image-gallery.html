@@ -1,43 +1,24 @@
 
-{% assign slides = section.image %}
+{% assign slides = section.images %}
 <div class="container vpad--xl">
-  <div class="gallery rounded--lg" id="gallery__{{page.document.slug}}-{{section.id}}">
+  <div class="gallery rounded--lg" id="gallery__{{section.id}}">
+
+    {% assign ratio = "16-9" %}
+    {% if section.ratio %}
+      {% assign ratio = slide.ratio %}
+    {% endif %}
+
     {% for slide in slides %}
-
-      {% if slide.ratio == 'ratio_1_2' %}
-        {% assign ratio = "1-2" %}
-      {% elsif slide.ratio == 'ratio_2_3' %}
-        {% assign ratio = "2-3" %}
-      {% elsif slide.ratio == 'ratio_3_4' %}
-        {% assign ratio = "3-4" %}
-      {% elsif slide.ratio == 'ratio_1_1' %}
-        {% assign ratio = "1-1" %}
-      {% elsif slide.ratio == 'ratio_4_3' %}
-        {% assign ratio = "4-3" %}
-      {% elsif slide.ratio == 'ratio_3_2' %}
-        {% assign ratio = "3-2" %}
-      {% elsif slide.ratio == 'ratio_16_9' %}
-        {% assign ratio = "16-9" %}
-      {% elsif slide.ratio == 'ratio_2_1' %}
-        {% assign ratio = "2-1" %}
-      {% elsif slide.ratio == 'ratio_21_9' %}
-        {% assign ratio = "21-9" %}
-      {% elsif slide.ratio == 'ratio_3_1' %}
-        {% assign ratio = "3-1" %}
-      {% else %}
-        {% assign ratio = "16-9" %}
-      {% endif %}
-
       <div class="gallery__slide{% if forloop.first%} is-open{% endif %}">
-        <div class="img img--{{ratio}}" style="background-image: url({{slide.file.url}});"></div>
+        <div class="img img--{{ratio}}" style="background-image: url({{slide.file}});"></div>
       </div>
     {% endfor %}
+
     <div class="gallery__slide-sizer img img--{{ratio}}"></div>
 
-    <div class="">
-      <div class="js-gallery-nav gallery__nav gallery__nav--next" data-target="gallery__{{page.document.slug}}-{{section.id}}" data-nav-direction="next"></div>
-      <div class="js-gallery-nav gallery__nav gallery__nav--previous" data-target="gallery__{{page.document.slug}}-{{section.id}}" data-nav-direction="prev"></div>
+    <div>
+      <div class="js-gallery-nav gallery__nav gallery__nav--next" data-target="gallery__{{section.id}}" data-nav-direction="next"></div>
+      <div class="js-gallery-nav gallery__nav gallery__nav--previous" data-target="gallery__{{section.id}}" data-nav-direction="prev"></div>
     </div>
   </div>
 </div>
-{% assign ratio = %}

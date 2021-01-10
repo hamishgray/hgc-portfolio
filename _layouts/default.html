@@ -3,7 +3,7 @@
 
   {% include page/head.html %}
 
-  <body class="loading {% if page.document %}project{% endif %}">
+  <body class="loading {{page.layout}}">
 
     {% include components/tracking.html %}
 
@@ -12,7 +12,6 @@
     {% include page/footer.html %}
 
     {% include page/background.html %}
-
 
     <div id="cursor"></div>
 

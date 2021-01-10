@@ -1,32 +1,10 @@
 
-{% if section.ratio == 'ratio_1_2' %}
-  {% assign ratio = "1-2" %}
-{% elsif section.ratio == 'ratio_2_3' %}
-  {% assign ratio = "2-3" %}
-{% elsif section.ratio == 'ratio_3_4' %}
-  {% assign ratio = "3-4" %}
-{% elsif section.ratio == 'ratio_1_1' %}
-  {% assign ratio = "1-1" %}
-{% elsif section.ratio == 'ratio_4_3' %}
-  {% assign ratio = "4-3" %}
-{% elsif section.ratio == 'ratio_3_2' %}
-  {% assign ratio = "3-2" %}
-{% elsif section.ratio == 'ratio_16_9' %}
-  {% assign ratio = "16-9" %}
-{% elsif section.ratio == 'ratio_2_1' %}
-  {% assign ratio = "2-1" %}
-{% elsif section.ratio == 'ratio_21_9' %}
-  {% assign ratio = "21-9" %}
-{% elsif section.ratio == 'ratio_3_1' %}
-  {% assign ratio = "3-1" %}
-{% endif %}
-
 <div class="container vpad--xl">
 
-  {% if ratio %}
-    <div class="img img--{{ratio}} rounded--lg" style="background-image: url({{section.file.url}});"></div>
+  {% if section.ratio %}
+    <div class="img img--{{section.ratio}} rounded--lg" style="background-image: url({{section.file}});"></div>
   {% else %}
-    <img src="{{section.file.url}}" class="rounded--lg">
+    <img src="{{section.file}}" class="rounded--lg">
   {% endif %}
 
   {% if section.caption %}
@@ -34,4 +12,3 @@
   {% endif %}
 
 </div>
-{% assign ratio = %}

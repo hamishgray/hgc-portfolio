@@ -11,19 +11,19 @@ layout: default
 
   <div class="project__banner js-load">
     <div class="container container--xxl">
-      {% if page.document.banner.subtitle %}
-        <div class="h h--md h--subtitle vpad--xs">{{page.document.banner.subtitle}}</div>
+      {% if page.banner.subtitle %}
+        <div class="h h--md h--subtitle vpad--xs">{{page.banner.subtitle}}</div>
       {% endif %}
       <h1 class="h h--banner text--outline">
-        {% if page.document.banner.title %}
-          {{page.document.banner.title}}
+        {% if page.banner.title %}
+          {{page.banner.title}}
         {% else %}
-          {{page.document.page.title}}
+          {{page.page.title}}
         {% endif %}
       </h1>
       <div class="space--lg"></div>
       <div class="row">
-        {% assign details = page.document.detail%}
+        {% assign details = page.details %}
         {% for detail in details %}
           <div class="col col--{{ 12 | divided_by: details.size }}">
             <span class="text--700 text--upper text--wide">{{detail.name}}</span><br />
@@ -38,16 +38,17 @@ layout: default
 
 
   <div class="js-load">
-    {% for section in page.document.sections %}
-      {% if section.__component == 'global.text-block' %}
+    {% for section in page.sections %}
+
+      {% if section.type == 'text' %}
         {% include project/content.html %}
-      {% elsif section.__component == 'global.image-block' %}
+      {% elsif section.type == 'image' %}
         {% include project/image.html %}
-      {% elsif section.__component == 'global.image-gallery-block' %}
+      {% elsif section.type == 'image-gallery' %}
         {% include project/image-gallery.html %}
-      {% elsif section.__component == 'global.image-wide-block' %}
+      {% elsif section.type == 'image-wide' %}
         {% include project/image-fullwidth.html %}
-      {% elsif section.__component == 'global.video-block' %}
+      {% elsif section.type == 'video' %}
         {% include project/video.html %}
       {% endif %}
     {% endfor %}

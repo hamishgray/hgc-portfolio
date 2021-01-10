@@ -124,27 +124,26 @@ awards:
       <div class="section-title"><div class="section-title__text">Case studies</div></div>
     </div>
     <div class="col col--10">
-      {% assign projects = site.data.projects %}
+      {% assign projects = site.html_pages | where: 'layout', 'project' %}
       {% for project in projects %}
-      {% if project.[1].type == 'casestudy' %}
-
+      {% if project.casestudy %}
       <div class="row row--no-gutters case-study" id="{{project.case_study_type}}">
         <div class="col col--5 case-study__content">
-          <div class="p--lg text--upper text--wide">{{project.case_study_type}} case study</div>
+          <div class="p--lg text--upper text--wide">{{project.casestudy-focus}} case study</div>
           <div class="space--xxs"></div>
-          <h4 class="h h--xxl text--700 text--outline">{{project.[1].title}}</h4>
+          <h4 class="h h--xxl text--700 text--outline">{{project.title}}</h4>
           <div class="space--sm"></div>
-          <p>{{project.page.excerpt}}</p>
+          <p>{{project.excerpt}}</p>
         </div>
         <div class="col col--1"></div>
         <div class="col col--constant-10 col--lg-5">
-          <div class="img img--1-1 js-cursor" data-cursor-type="view" style="background-image: url({{project.page.thumbnail.url}});">
+          <div class="img img--1-1 js-cursor" data-cursor-type="view" style="background-image: url({{project.thumbnail}});">
             <a href="{{ project.url | relative_url }}" class="img__link js-exit-link"></a>
           </div>
         </div>
         <div class="col col--constant-2 col--lg-1">
-          <a href="{{project.url | relative_url}}" class="case-study__logo js-cursor js-exit-link" data-cursor-type="view" style="background-image: url({{project.client_logo.url}})"></a>
-          <a href="{{project.url | relative_url}}" class="case-study__arrow js-cursor js-exit-link" data-cursor-type="view"></a>
+          <a href="{{project.url}}" class="case-study__logo js-cursor js-exit-link" data-cursor-type="view" style="background-image: url({{project.logo}})"></a>
+          <a href="{{project.url}}" class="case-study__arrow js-cursor js-exit-link" data-cursor-type="view"></a>
         </div>
       </div>
       {% endif %}
@@ -163,18 +162,17 @@ awards:
     <div class="col col--11">
       <div class="row">
 
-        {% assign projects = strapi.collections.projects %}
         {% for project in projects %}
-        {% unless project.case_study_type %}
+        {% unless project.casestudy %}
         <div class="col col--3">
-          <div class="img img--1-1 js-cursor" data-cursor-type="view" style="background-image: url({{project.page.thumbnail.url}});">
-            <a href="{{ project.url | relative_url }}" class="img__link js-exit-link"></a>
+          <div class="img img--1-1 js-cursor" data-cursor-type="view" style="background-image: url({{project.thumbnail}});">
+            <a href="{{ project.url }}" class="img__link js-exit-link"></a>
           </div>
 
           <div class="vpad--lg">
-            <div class="h h--xxs text--600">{{project.page.title}}</div>
+            <div class="h h--xxs text--600">{{project.title}}</div>
             <div>
-            {% for detail in project.detail %}
+            {% for detail in project.details %}
               {{detail.content}}{% unless forloop.last %}<br />{% endunless%}
             {% endfor %}
             </div>
