@@ -124,14 +124,15 @@ awards:
       <div class="section-title"><div class="section-title__text">Case studies</div></div>
     </div>
     <div class="col col--10">
-      {% assign projects = strapi.collections.projects | sort: 'created_at' | reverse %}
+      {% assign projects = site.data.projects %}
       {% for project in projects %}
-      {% if project.case_study_type %}
+      {% if project.[1].type == 'casestudy' %}
+
       <div class="row row--no-gutters case-study" id="{{project.case_study_type}}">
         <div class="col col--5 case-study__content">
           <div class="p--lg text--upper text--wide">{{project.case_study_type}} case study</div>
           <div class="space--xxs"></div>
-          <h4 class="h h--xxl text--700 text--outline">{{project.page.title}}</h4>
+          <h4 class="h h--xxl text--700 text--outline">{{project.[1].title}}</h4>
           <div class="space--sm"></div>
           <p>{{project.page.excerpt}}</p>
         </div>
@@ -162,7 +163,7 @@ awards:
     <div class="col col--11">
       <div class="row">
 
-        {% assign projects = strapi.collections.projects | sort: 'created_at' | reverse %}
+        {% assign projects = strapi.collections.projects %}
         {% for project in projects %}
         {% unless project.case_study_type %}
         <div class="col col--3">
@@ -203,4 +204,3 @@ awards:
     </div>
   </div>
 </div>
-
