@@ -2012,11 +2012,9 @@ p + .title {
   width: 100%; }
   .section-title__text {
     font-size: 1.728rem;
-    font-weight: 700;
     padding-bottom: 1rem; }
     @media (min-width: 650px) {
       .section-title__text {
-        font-family: "Maisonneue Mono", "Helvetica Neue", sans-serif;
         text-transform: uppercase;
         letter-spacing: 0.2em;
         font-size: 1.2rem;
