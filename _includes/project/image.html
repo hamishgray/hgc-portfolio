@@ -2,9 +2,9 @@
 <div class="container vpad--xl">
 
   {% if section.ratio %}
-    <div class="img img--{{section.ratio}} rounded--lg" style="background-image: url({{section.file}});"></div>
+    <div class="img img--{{section.ratio}} rounded--lg" style="background-image: url({{site.img}}/projects/{{page.id}}/{{section.file}});"></div>
   {% else %}
-    <img src="{{section.file}}" class="rounded--lg">
+    <img src="{{site.img}}/projects/{{page.id}}/{{section.file}}" class="rounded--lg">
   {% endif %}
 
   {% if section.caption %}

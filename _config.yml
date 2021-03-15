@@ -1,7 +1,7 @@
 
 # File paths
 url:     "" # the base hostname & protocol for your site
-baseurl: "" # the subpath of your site, e.g. /blog/
+baseurl: "/" # the subpath of your site, e.g. /blog/
 img:     "/_assets/img"
 css:     "/_assets/css"
 js:      "/_assets/js"
@@ -17,7 +17,3 @@ sass:
 # Global variables
 title: Portfolio
 description: Welcome to my little corner of the internet. I've been working in the field of design since 2009 with experience in everything from print and branding, to video editing and web development. My passion truly lies in developing brand systems that span all formats and create a joyful experience for people to discover.
-logo: https://hgc-cms.s3.eu-west-2.amazonaws.com/logo-white_5a6c06e862.svg
-logo-dark: https://hgc-cms.s3.eu-west-2.amazonaws.com/logo-black_5ec699a07a.svg
-background-image: https://hgc-cms.s3.eu-west-2.amazonaws.com/hp-image_d405158856.jpeg
-background-logo: https://hgc-cms.s3.eu-west-2.amazonaws.com/logo-lines_28a592c758.svg

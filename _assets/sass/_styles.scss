@@ -90,25 +90,23 @@
 .case-study {
   & + & { padding-top: $s8; }
   &__content { padding-bottom: $s0; }
-  &__logo,
-  &__arrow {
-    display: block;
-    &:before {
-      content: "";
-      width: 100%;
-      padding-top: 100%;
-      display: block;
-    }
-  }
-  &__logo {
-    @include background-attributes;
-  }
   &__arrow {
     background-color: $brand-pink;
     background-image: url("../img/arrow-right.svg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: 50%;
+    width: 25%;
+    max-width: 60px;
+    display: block;
+    position: absolute;
+    top: 0; right: 0;
+    &:before {
+      content: "";
+      width: 100%;
+      padding-top: 100%;
+      display: block;
+    }
   }
 }
 

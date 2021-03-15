@@ -2,9 +2,9 @@
 <div>
 
   {% if section.ratio %}
-    <div class="img img--4-3 img--xxl-{{section.ratio}}" style="background-image: url({{section.file}});"></div>
+    <div class="img img--4-3 img--xxl-{{section.ratio}}" style="background-image: url({{site.img}}/projects/{{page.id}}/{{section.file}});"></div>
   {% else %}
-    <img src="{{section.file}}">
+    <img src="{{site.img}}/{{page.id}}/{{section.file}}">
   {% endif %}
 
 </div>

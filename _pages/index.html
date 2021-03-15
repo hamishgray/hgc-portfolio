@@ -136,14 +136,11 @@ awards:
           <p>{{project.excerpt}}</p>
         </div>
         <div class="col col--1"></div>
-        <div class="col col--constant-10 col--lg-5">
-          <div class="img img--1-1 js-cursor" data-cursor-type="view" style="background-image: url({{project.thumbnail}});">
+        <div class="col col--constant-10 col--lg-6">
+          <div class="img img--4-3 js-cursor" data-cursor-type="view" style="background-image: url({{site.img}}/projects/{{project.id}}/thumb.jpg);">
             <a href="{{ project.url | relative_url }}" class="img__link js-exit-link"></a>
+            <div class="case-study__arrow js-cursor js-exit-link"></div>
           </div>
-        </div>
-        <div class="col col--constant-2 col--lg-1">
-          <a href="{{project.url}}" class="case-study__logo js-cursor js-exit-link" data-cursor-type="view" style="background-image: url({{project.logo}})"></a>
-          <a href="{{project.url}}" class="case-study__arrow js-cursor js-exit-link" data-cursor-type="view"></a>
         </div>
       </div>
       {% endif %}
@@ -159,13 +156,13 @@ awards:
     <div class="col col--1">
       <div class="section-title"><div class="section-title__text">Other projects</div></div>
     </div>
-    <div class="col col--11">
+    <div class="col col--10">
       <div class="row">
 
         {% for project in projects %}
         {% unless project.casestudy %}
-        <div class="col col--3">
-          <div class="img img--1-1 js-cursor" data-cursor-type="view" style="background-image: url({{project.thumbnail}});">
+        <div class="col col--4">
+          <div class="img img--1-1 js-cursor" data-cursor-type="view" style="background-image: url({{site.img}}/projects/{{project.id}}/thumb.jpg);">
             <a href="{{ project.url }}" class="img__link js-exit-link"></a>
           </div>
 
@@ -184,6 +181,7 @@ awards:
 
       </div>
     </div>
+    <div class="col col--1"></div>
   </div>
   <div class="space--xxl"></div>
 

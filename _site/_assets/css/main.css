@@ -2031,25 +2031,23 @@ p + .title {
 .case-study__content {
   padding-bottom: 1rem; }
 
-.case-study__logo, .case-study__arrow {
-  display: block; }
-  .case-study__logo:before, .case-study__arrow:before {
-    content: "";
-    width: 100%;
-    padding-top: 100%;
-    display: block; }
-
-.case-study__logo {
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover; }
-
 .case-study__arrow {
   background-color: #FF006B;
   background-image: url("../img/arrow-right.svg");
   background-position: center;
   background-repeat: no-repeat;
-  background-size: 50%; }
+  background-size: 50%;
+  width: 25%;
+  max-width: 60px;
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0; }
+  .case-study__arrow:before {
+    content: "";
+    width: 100%;
+    padding-top: 100%;
+    display: block; }
 
 /* PROJECT PAGE
 ==================================================*/
